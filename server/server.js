@@ -10,7 +10,7 @@ const app = express();
 // connect to mongoDB 
 mongoose.connect(config.dbUrl, { useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.connection.on('connected', () => {
-    console.log('connected to mongo database');
+    console.log('connected to mongoDB');
 });
 
 mongoose.connection.on('error', err => {
@@ -18,6 +18,6 @@ mongoose.connection.on('error', err => {
 });
 
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, console.log(`Server running on port ${PORT}`));
