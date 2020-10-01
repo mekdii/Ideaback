@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 
 const config = require('./configuration/config');
 const userRoute = require('./routes/users.route');
+const indexRoute = require('./routes/index.route');
 
 const app = express();
 
@@ -19,6 +20,7 @@ mongoose.connection.on('error', err => {
 
 // add middleware 
 app.use(bodyParser.json());
+app.use('/', indexRoute);
 app.use('/users', userRoute);
 
 const PORT = process.env.PORT || 3000;
