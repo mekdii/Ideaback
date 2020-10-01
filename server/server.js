@@ -1,9 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
-
+const bodyParser = require('body-parser');
 
 const config = require('./configuration/config');
-
+const userRoute = require('./routes/users.route');
 
 const app = express();
 
@@ -17,6 +17,9 @@ mongoose.connection.on('error', err => {
     console.log('Error at mongoDB: ' + err);
 });
 
+// add middleware 
+app.use(bodyParser.json());
+app.use('/users', userRoute);
 
 const PORT = process.env.PORT || 3000;
 
