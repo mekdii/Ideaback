@@ -1,0 +1,28 @@
+<nav class="nav-menu d-none d-lg-block">
+    <ul>
+      <li (click)="getActiveTab('home')" [class.active]="activetab === 'home'"><a routerLink="/Home">Home</a></li>
+      <li (click)="getActiveTab('about')" [class.active]="activetab === 'about'"><a routerLink="/About">About</a></li>
+      <li (click)="getActiveTab('services')" [class.active]="activetab === 'services'"><a routerLink="/Services">Services</a></li>
+      <li (click)="getActiveTab('login')" [class.active]="activetab === 'login'"><a routerLink="/Login">Login</a></li>
+      <li (click)="getActiveTab('signup')" [class.active]="activetab === 'signup'"><a routerLink="/Signup">Signup</a></li>
+      <li class="drop-down"><a routerLink="">Templates</a>
+        <ul>
+          <li><a routerLink="#">Drop Down 1</a></li>
+          <li class="drop-down"><a routerLink="#">Deep Drop Down</a>
+            <ul>
+              <li><a routerLink="#">Deep Drop Down 1</a></li>
+              <li><a routerLink="#">Deep Drop Down 2</a></li>
+              <li><a routerLink="#">Deep Drop Down 3</a></li>
+              <li><a routerLink="#">Deep Drop Down 4</a></li>
+              <li><a routerLink="#">Deep Drop Down 5</a></li>
+            </ul>
+          </li>
+          <li><a routerLink="#">Drop Down 2</a></li>
+          <li><a routerLink="#">Drop Down 3</a></li>
+          <li><a routerLink="#">Drop Down 4</a></li>
+        </ul>
+      </li>
+      <li (click)="getActiveTab('contact')" [class.active]="activetab === 'contact'"><a routerLink="/Contact">Contact</a></li>
+  
+    </ul>
+  </nav><!-- .nav-menu -->
