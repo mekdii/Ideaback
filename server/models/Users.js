@@ -48,7 +48,27 @@ User.addUser = (user, cb)=>{
     });    
 };
 
+// login 
+User.login = (email, password, cb)=>{
+    User.findOne({email: email}, (err, user)=>{
+        if(err){
+            console.log(err);
+            cb('server error');
+        }else if(user==undefined){
+            cb('user not found');
+        }else{
+            bcrypt.compare(password, user.password,(err, isMatch)=>{
+                if(err){
+                    cb('server error');
+                }else if(isMatch===true){
+                    cb(null, 'login successfully');
+                }else{
+                    cb('login info incorrect');
+                }
+            });
+        }
+    });
 
-
+}
 
 module.exports = User;

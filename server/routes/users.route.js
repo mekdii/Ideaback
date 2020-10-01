@@ -21,6 +21,16 @@ router.post('/register', (req, res)=>{
     });
 });
 
+//Login Handle
+router.post('/login', (req, res)=>{
+    User.login(req.body.email, req.body.password, (err, result)=>{
+        if(err){
+            return res.json({success: false, message: err});
+        }
+        return res.json({success: true, message: result});
+    });
+});
+
 
 
 module.exports = router;
