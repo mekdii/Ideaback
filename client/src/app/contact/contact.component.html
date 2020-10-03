@@ -3,8 +3,8 @@
   <div class="container" data-aos="fade-up">
   
     <div class="section-title">
-      <h2>{{contact.heading}}</h2>
-      <p>{{contact.title}}</p>
+      <h2>{{contacts.heading}}</h2>
+      <p>{{contacts.title}}</p>
     </div>
   
   
@@ -12,7 +12,7 @@
     <div class="row mt-5">
   
       <div class="col-lg-4">
-        <div class="info" *ngFor="let infos of contact.info">
+        <div class="info" *ngFor="let infos of contacts.info">
           <div class="{{infos.class}}">
             <i class="icofont-{{infos.icon}}"></i>
             <h4>{{infos.title}}</h4>
@@ -24,23 +24,23 @@
   
       <div class="col-lg-8 mt-5 mt-lg-0">
   
-        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+        <form [formGroup]="contactForm" (ngSubmit)="contactForm.valid && onContactSubmit()" class="php-email-form">
           <div class="form-row">
             <div class="col-md-6 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" formControlName="name" [(ngModel)]="contact.name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
               <div class="validate"></div>
             </div>
             <div class="col-md-6 form-group">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" formControlName="email" [(ngModel)]="contact.email" data-msg="Please enter a valid email" />
               <div class="validate"></div>
             </div>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" formControlName="subject" [(ngModel)]="contact.subject" data-msg="Please enter at least 8 chars of subject" />
             <div class="validate"></div>
           </div>
           <div class="form-group">
-            <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+            <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" formControlName="message" [(ngModel)]="contact.message" placeholder="Message"></textarea>
             <div class="validate"></div>
           </div>
           <div class="mb-3">
@@ -48,7 +48,7 @@
             <div class="error-message"></div>
             <div class="sent-message">Your message has been sent. Thank you!</div>
           </div>
-          <div class="text-center"><button type="submit">Send Message</button></div>
+          <div class="text-center"><button type="submit" [disabled]="!contactForm.valid">Send Message</button></div>
         </form>
   
       </div>

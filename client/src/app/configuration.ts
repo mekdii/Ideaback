@@ -20,7 +20,7 @@ export const configuration = {
         linkText:'Call To Action',
         link:'/Login'
     },
-    contact:{
+    contacts:{
        heading:'Contact',
        title: 'Contact Us',
        info: [
