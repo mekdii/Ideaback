@@ -11,27 +11,27 @@
       <div class="row ">
         <div class="col-lg-6 mx-auto">
   
-          <form [formGroup]="signupForm" (ngSubmit)="signUp(signupForm.value)" class="php-email-form">
+          <form [formGroup]="signupForm" (ngSubmit)="signupForm.valid && onSignupSubmit()" class="php-email-form" novalidate>
          
             <div class="form-group">
-              <input type="text" class="form-control" name="fname" id="fname" formControlName="firstName" placeholder="First Name" data-rule="email" data-msg="Please enter a valid email" />
+              <input type="text" class="form-control" name="firstName" id="firstName" formControlName="firstName" [(ngModel)]="user.firstName" placeholder="First Name" data-rule="email" data-msg="Please enter a valid email" />
             
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="lname" id="lname" formControlName="lastName" placeholder="Last Name" data-rule="email" data-msg="Please enter a valid email" />
+              <input type="text" class="form-control" name="lastName" id="lastName" formControlName="lastName" [(ngModel)]="user.lastName" placeholder="Last Name" data-rule="email" data-msg="Please enter a valid email" />
               
             </div>
             <div class="form-group">
-                <input type="email" class="form-control" name="email" id="email" formControlName="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                <input type="email" class="form-control" name="email" id="email" formControlName="email" placeholder="Your Email" [(ngModel)]="user.email" data-rule="email" data-msg="Please enter a valid email" />
             
               </div>
         
             <div class="form-group">
-              <input type="password" class="form-control" name="password" id="password" formControlName="password" placeholder="Password" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+              <input type="password" class="form-control" name="password" id="password" formControlName="password" [(ngModel)]="user.password" placeholder="Password" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
              
             </div>
          
-         <div class="text-center"><button type="submit">{{signup.btnText}}</button></div>
+         <div class="text-center"><button type="submit" [disabled]="!signupForm.valid">Signup</button></div>
           </form> <br>
           <div *ngFor="let blocks of signup.block">
    <p>{{blocks.text}}<a routerLink="{{blocks.link}}"> {{blocks.linkText}}</a></p>

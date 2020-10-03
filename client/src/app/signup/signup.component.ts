@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ConfigService} from '../config.service'
+import {ConfigService} from '../config.service';
+import {SignupModel} from '../models/signup.model';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { AuthenticationService } from '../authentication.service';
 import { Router } from '@angular/router';
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  user: SignupModel = new SignupModel();
   signupForm: FormGroup;
   returnUrl: string;
 
@@ -25,22 +27,25 @@ signup ={
     ) { }
 
   ngOnInit(): void {
-    this.signup =this.getSignup();
     this.signupForm = this.fb.group({
-      'firstName':  [null, Validators.required],
-      'lastName':  [null, Validators.required],
-      'email' : [null, [Validators.required, Validators.email]],
-      'password' : [null, Validators.required],
+      'firstName': [this.user.firstName, [
+        Validators.required
+      ]],
+      'lastName': [this.user.lastName, [
+        Validators.required
+      ]],
+      'email': [this.user.email, [
+        Validators.required,
+        Validators.email
+      ]],
+      'password': [this.user.password, [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(15)
+      ]]
     });
   }
-getSignup(){
-  return this.config.getConfig().signup
-}
-signUp(formData: NgForm) {
-  return this.auth.signUp(formData).subscribe(
-    (user) => {
-      console.log(`added user ${user}`);
-      this.router.navigate(['Login']);
-    });
-}
+  onSignupSubmit() {
+    alert(this.user.firstName + ' ' + this.user.lastName + ' ' + this.user.email + ' ' + this.user.password);
+  }
 }

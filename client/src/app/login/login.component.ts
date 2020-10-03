@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ConfigService} from '../config.service'
+import {ConfigService} from '../config.service';
+import {LoginModel} from '../models/login.model'
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { AuthenticationService } from '../authentication.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -9,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  user: LoginModel = new LoginModel();
   loginForm: FormGroup;
   returnUrl: String;
 
@@ -28,25 +29,21 @@ login = {
     ) { }
 
   ngOnInit(): void {
-    this.login = this.getLogin();
     this.loginForm = this.fb.group({
-      'email' : [null, [Validators.required, Validators.email]],
-      'password' : [null, Validators.required],
+      'email': [this.user.email, [
+        Validators.required,
+        Validators.email
+      ]],
+      'password': [this.user.password, [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(15)
+      ]]
     });
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/' ;
   }
   
-getLogin(){
-
-  return this.config.getConfig().login
-};
-
-logIn(formData: NgForm) {
-  return this.auth.logIn(formData).subscribe(
-    (user) => {
-      console.log(user);
-      this.router.navigate([this.returnUrl]);
-    });
-}
+  onLoginSubmit() {
+    alert(this.user.email + ' ' + this.user.password);
+  }
 
 }

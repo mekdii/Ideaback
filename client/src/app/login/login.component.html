@@ -3,7 +3,7 @@
     <div class="container" data-aos="fade-up">
     
       <div class="section-title">
-        <p class="text-center">{{login.title}}</p>
+        <p class="text-center">Login</p>
       </div>
     
       
@@ -11,7 +11,7 @@
       <div class="row ">
         <div class="col-lg-6 mx-auto login">
     
-          <form [formGroup]="loginForm" (ngSubmit)="logIn(loginForm.value)" class="php-email-form">
+          <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onLoginSubmit()" class="php-email-form" novalidate>
          
     
             <div class="form-group">
@@ -24,7 +24,7 @@
               
             </div>
          
-         <div class="text-center"><button type="submit">Login</button></div>
+         <div class="text-center"><button type="submit" [disabled]="!loginForm.valid">Login</button></div>
           </form> <br>
           <div *ngFor="let blocks of login.block">
     <p class="block"> {{blocks.text}}<a routerLink="{{blocks.link}}"> {{ blocks.linkText}}</a></p>
