@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const config = require('../configuration/config');
 
 const UserSchema = mongoose.Schema({
     firstName:{
@@ -53,26 +54,19 @@ User.addUser = (user, cb)=>{
 };
 
 // login 
-User.login = (email, password, cb)=>{
-    User.findOne({email: email}, (err, user)=>{
-        if(err){
-            console.log(err);
-            cb('server error');
-        }else if(user==undefined){
-            cb('user not found');
-        }else{
-            bcrypt.compare(password, user.password,(err, isMatch)=>{
-                if(err){
-                    cb('server error');
-                }else if(isMatch===true){
-                    cb(null, 'login successfully');
-                }else{
-                    cb('login info incorrect');
-                }
-            });
-        }
-    });
+User.getUserById = function(id, callback) {
+    User.findById(id, callback);
+  }
+User.getUserByEmail = function(email, callback) {
+    const query = {email: email}
+    User.findOne(query, callback);
+  }
 
-}
+  User.comparePassword = function(candidatePassword, hash, callback) {
+    bcrypt.compare(candidatePassword, hash, (err, isMatch) => {
+      if(err) throw err;
+      callback(null, isMatch);
+    });
+  }
 
 module.exports = User;

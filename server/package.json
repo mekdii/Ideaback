@@ -4,7 +4,7 @@
   "description": "server for contract management system",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start":"nodemon server.s"
   },
   "author": "Sisay Mandefro",
   "license": "ISC",
@@ -12,6 +12,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.6",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0"

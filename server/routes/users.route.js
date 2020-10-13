@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
 
+const config = require('../configuration/config');
 const User = require('../models/Users');
 
 
@@ -23,15 +26,42 @@ router.post('/signup', (req, res)=>{
 });
 
 //Login Handle
-router.post('/login', (req, res)=>{
-    User.login(req.body.email, req.body.password, (err, result)=>{
-        if(err){
-            return res.json({success: false, message: err});
+router.post('/login', (req, res, next)=>{
+    const email = req.body.email;
+    const password = req.body.password;
+
+    User.getUserByEmail(email, (err, user) => {
+        if(err) throw err;
+        if(!user) {
+          return res.json({success: false, msg: 'User not found'});
         }
-        return res.json({success: true, message: result});
-    });
+        User.comparePassword(password, user.password, (err, isMatch) => {
+            if(err) throw err;
+            if(isMatch) {
+              const token = jwt.sign({data: user}, config.secret, {
+                expiresIn: 604800 // expires in 1 week
+              });
+              res.json({
+                success: true,
+                token: 'JWT '+token,
+                user: {
+                  id: user._id,
+                  name: user.name,
+                  firstName: user.firstName,
+                  lastName: user.lastName,
+                  email: user.email
+                }
+              })
+            } else {
+              return res.json({success: false, msg: 'Wrong password'});
+            }
+          });
 });
-
-
+});
+// Dashboard
+router.get('/dashboard', passport.authenticate('jwt', {session:false}), (req, res, next) => {
+    res.json({user: req.user});
+  });
+  
 
 module.exports = router;
