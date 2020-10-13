@@ -31,7 +31,7 @@
              
             </div>
          
-         <div class="text-center"><button type="submit" [disabled]="!signupForm.valid">Signup</button></div>
+         <div class="text-center"><button type="submit">Signup</button></div>
           </form> <br>
           <div *ngFor="let blocks of signup.block">
    <p>{{blocks.text}}<a routerLink="{{blocks.link}}"> {{blocks.linkText}}</a></p>

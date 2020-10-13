@@ -2,14 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import {ConfigService} from '../config.service';
 import {SignupModel} from '../models/signup.model';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
+import { ValidateService } from '../services/validate.service';
+
+
 import { AuthenticationService } from '../authentication.service';
+
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  
+
   user: SignupModel = new SignupModel();
   signupForm: FormGroup;
   returnUrl: string;
@@ -21,9 +28,12 @@ signup ={
         block: []
 }
   constructor(private config: ConfigService,
+    
+    private validateService: ValidateService,
     private fb: FormBuilder,
     private auth: AuthenticationService,
-    private router: Router
+    private router: Router,
+  
     ) { }
 
   ngOnInit(): void {
@@ -46,6 +56,18 @@ signup ={
     });
   }
   onSignupSubmit() {
+   
     alert(this.user.firstName + ' ' + this.user.lastName + ' ' + this.user.email + ' ' + this.user.password);
+/*  
+// Required Fields
+if(!this.validateService.validateSignup(user)) {
+  this.flashMessage.show('Please fill in all fields', {cssClass: 'alert-danger', timeout: 3000});
+  return false;
+}
+*/
+
+
+
+
   }
 }
