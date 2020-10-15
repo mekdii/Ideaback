@@ -8,6 +8,7 @@ import { ValidateService } from '../services/validate.service';
 import { AuthenticationService } from '../authentication.service';
 
 import { Router } from '@angular/router';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-signup',
@@ -15,18 +16,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  
-
+ 
   user: SignupModel = new SignupModel();
   signupForm: FormGroup;
   returnUrl: string;
 
-signup ={
-  title: '',
-        btnText: '',
-        link: '',
-        block: []
-}
+
   constructor(private config: ConfigService,
     
     private validateService: ValidateService,
@@ -56,15 +51,10 @@ signup ={
     });
   }
   onSignupSubmit() {
+  
    
     alert(this.user.firstName + ' ' + this.user.lastName + ' ' + this.user.email + ' ' + this.user.password);
-/*  
-// Required Fields
-if(!this.validateService.validateSignup(user)) {
-  this.flashMessage.show('Please fill in all fields', {cssClass: 'alert-danger', timeout: 3000});
-  return false;
-}
-*/
+
 
 
 
