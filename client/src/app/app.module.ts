@@ -22,6 +22,7 @@ import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 
 import { InMemoryDataService } from './in-memory-data.service';
 import { FeaturesComponent } from './features/features.component';
+import { ResetComponent } from './reset/reset.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { FeaturesComponent } from './features/features.component';
     NavComponent,
     HomeComponent,
     NotfoundComponent,
-    FeaturesComponent
+    FeaturesComponent,
+    ResetComponent
   ],
   imports: [
     BrowserModule,

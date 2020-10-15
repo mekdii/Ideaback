@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { ResetComponent } from './reset/reset.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'Home', pathMatch: 'full'},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'About', component: AboutComponent},
   {path: 'Login', component: LoginComponent},
   {path: 'Signup', component: SignupComponent},
+  {path: 'Reset', component: ResetComponent},
    {path: 'Contact', component: ContactComponent},
   {path: '404', component: NotfoundComponent},
    {path: '**', redirectTo: '/404'}

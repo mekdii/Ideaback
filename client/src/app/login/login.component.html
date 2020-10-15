@@ -1,10 +1,11 @@
  <!-- ======= Login Section ======= -->
- <section id="contact" class="contact">
-    <div class="container" data-aos="fade-up">
+ <section id="contact" class="contact container-100 " style="background: rgba(34, 28, 105, 0.603);">
+  <div class="container wrap mx-auto" data-aos="fade-up">
+    <div class="section-title">
+      <p class="text-center"><a href="index.html"><img src="assets/img/create.png" alt="" srcset="" width="70px"></a></p>
+    </div>
+    <h3 class="text-center" style="font-size: 24px;">LOGIN</h3>
     
-      <div class="section-title">
-        <p class="text-center">Login</p>
-      </div>
     
       
     
@@ -25,13 +26,33 @@
             </div>
          
          <div class="text-center"><button type="submit">Login</button></div>
-          </form> <br>
-          <div *ngFor="let blocks of login.block">
-    <p class="block"> {{blocks.text}}<a routerLink="{{blocks.link}}"> {{ blocks.linkText}}</a></p>
-  </div>
+          </form> <div class="options">
+            <p class="">Not a member?<a routerLink="/Signup">signup</a><a style="margin-left: 10px;" routerLink="/Reset">Forgot password?</a></p> 
+          </div>
         </div>
     
       </div>
-    
+      <div class="social-login">
+        <p class="text-center">Login using</p>
+        <div class="row">
+         
+          <div class="mx-auto row">
+            <div class="col-md-6 mx-auto">
+              <a href="#" class="btn-face ">
+                <i class="bx bxl-facebook"></i>
+                Facebook
+              </a>
+            </div>
+      <div class="col-lg-6">
+        <a href="#" class="btn-google text-center ">
+          <img src="assets/img/icon-google.png" alt="GOOGLE">
+          Google
+        </a>
+      </div>
+          </div>
+          
+          
+        </div>
+      </div>
     </div>
     </section><!-- End Login Section -->
