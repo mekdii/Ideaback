@@ -4,13 +4,14 @@ export const configuration = {
         subheading: 'We have all the tools you need for all your contracts.'
     },
     about:{
-        image: 'assets/img/about.jpg',
-        heading: 'Focus On What Matters',
-        description: 'Get the information you need from your contracts, faster using ContractWorks with artificial intelligence - because you have more important work to do',
+        image: 'assets/img/whyus.jpg',
+        heading: 'Just a click and close a deal',
+        description: 'Get the information you need from your contracts, faster using our contract management sysytem - you just focus on what matters.',
         features: [
-            { icon:'ri-check-double-line',  description: 'Negotiate and sign in real-time'},
-            { icon:'ri-check-double-line', description: 'Stay on top of approvals & renewals'},
-            {icon:'ri-check-double-line', description: 'Automate workﬂows & reports'}
+            { icon:'ri-check-double-line',  description: ' Plenty of ready made templates to choose from'},
+            { icon:'ri-check-double-line',  description: 'Create a contract easily'},
+            { icon:'ri-check-double-line', description: 'Customize your contracts.'},
+            {icon:'ri-check-double-line', description: 'Stay on top of approvals & renewals'}
         ],
         subdescription: 'Business can’t wait. Quickly set-up all your teams and documents and start streamlining your processes with our familiar inbox-like interface.',
     },
