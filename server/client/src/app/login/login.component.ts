@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {ConfigService} from '../config.service';
 import {LoginModel} from '../models/login.model'
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
-import { AuthenticationService } from '../authentication.service';
+
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -23,7 +24,7 @@ login = {
 }
   constructor(private config:ConfigService,
     private fb: FormBuilder,
-    private auth: AuthenticationService,
+    private authService: AuthService,
     private route: ActivatedRoute,
     private router: Router
     ) { }
@@ -43,7 +44,7 @@ login = {
   }
   
   onLoginSubmit() {
-    alert(this.user.email + ' ' + this.user.password);
-  }
+   alert(this.user.email + ' ' + this.user.password);
 
+  }
 }

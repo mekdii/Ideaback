@@ -5,10 +5,9 @@ import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { ValidateService } from '../services/validate.service';
 
 
-import { AuthenticationService } from '../authentication.service';
-
 import { Router } from '@angular/router';
-import { ThrowStmt } from '@angular/compiler';
+
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -26,7 +25,7 @@ export class SignupComponent implements OnInit {
     
     private validateService: ValidateService,
     private fb: FormBuilder,
-    private auth: AuthenticationService,
+   private authService:AuthService,
     private router: Router,
   
     ) { }
@@ -52,12 +51,7 @@ export class SignupComponent implements OnInit {
   }
   onSignupSubmit() {
   
-   
     alert(this.user.firstName + ' ' + this.user.lastName + ' ' + this.user.email + ' ' + this.user.password);
-
-
-
-
 
   }
 }
