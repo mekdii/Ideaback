@@ -4,10 +4,8 @@ import {SignupModel} from '../models/signup.model';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { ValidateService } from '../services/validate.service';
 
-
+import { AuthenticationService } from '../authentication.service';
 import { Router } from '@angular/router';
-
-import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -15,17 +13,22 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
- 
+  
   user: SignupModel = new SignupModel();
   signupForm: FormGroup;
   returnUrl: string;
 
-
+signup ={
+  title: '',
+        btnText: '',
+        link: '',
+        block: []
+}
   constructor(private config: ConfigService,
     
     private validateService: ValidateService,
     private fb: FormBuilder,
-   private authService:AuthService,
+    private auth: AuthenticationService,
     private router: Router,
   
     ) { }
@@ -50,7 +53,7 @@ export class SignupComponent implements OnInit {
     });
   }
   onSignupSubmit() {
-  
+   
     alert(this.user.firstName + ' ' + this.user.lastName + ' ' + this.user.email + ' ' + this.user.password);
 
   }
