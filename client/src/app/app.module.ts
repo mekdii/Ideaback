@@ -21,6 +21,7 @@ import {HttpClientModule} from '@angular/common/http'
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 
 import { InMemoryDataService } from './in-memory-data.service';
+import { FeaturesComponent } from './features/features.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { InMemoryDataService } from './in-memory-data.service';
     FooterComponent,
     NavComponent,
     HomeComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    FeaturesComponent
   ],
   imports: [
     BrowserModule,
