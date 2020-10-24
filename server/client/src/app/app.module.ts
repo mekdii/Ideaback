@@ -19,8 +19,6 @@ import {FormsModule} from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http'
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
-
-import { InMemoryDataService } from './in-memory-data.service';
 import { FeaturesComponent } from './features/features.component';
 import { ResetComponent } from './reset/reset.component';
 
@@ -48,9 +46,7 @@ import { ResetComponent } from './reset/reset.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    )
+
   ],
   providers: [ConfigService],
   bootstrap: [AppComponent]

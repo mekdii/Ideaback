@@ -41,6 +41,14 @@ login = {
       ]]
     });
   }
+
+  
+  get password() {
+    return this.loginForm.get('password');
+  }
+  get email() {
+    return this.loginForm.get('email');
+  }
   
   onLoginSubmit() {
     alert(this.user.email + ' ' + this.user.password);

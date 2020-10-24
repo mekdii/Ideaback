@@ -35,12 +35,8 @@ signup ={
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({
-      'firstName': [this.user.firstName, [
-        Validators.required
-      ]],
-      'lastName': [this.user.lastName, [
-        Validators.required
-      ]],
+      firstName: ['', [Validators.required, Validators.minLength(3)]],
+      lastName: ['', [Validators.required, Validators.minLength(3)]],
       'email': [this.user.email, [
         Validators.required,
         Validators.email
@@ -52,6 +48,19 @@ signup ={
       ]]
     });
   }
+  get firstName() {
+    return this.signupForm.get('firstName');
+  }
+  get lastName() {
+    return this.signupForm.get('lastName');
+  }
+  get email() {
+    return this.signupForm.get('email');
+  }
+  get password() {
+    return this.signupForm.get('password');
+  }
+  
   onSignupSubmit() {
    
     alert(this.user.firstName + ' ' + this.user.lastName + ' ' + this.user.email + ' ' + this.user.password);
