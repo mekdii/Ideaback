@@ -11,7 +11,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class AuthenticationService {
 
-  apiUrl = 'api/users';
+  apiUrl = 'http://localhost:3000/users';
 
 
   private handleError<T> (operation = 'operation', result?: T) {
@@ -24,8 +24,8 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  signUp(formData: NgForm) {
-    return this.http.post<any>( `${this.apiUrl}/signUp`, formData).pipe(
+  signUp(userData) {
+    return this.http.post<any>( `${this.apiUrl}/signup`, userData).pipe(
       tap(user => {
         console.log(user);
       }),
@@ -33,12 +33,10 @@ export class AuthenticationService {
     );
   }
 
-  logIn(formData: NgForm) {
-    return this.http.post<any>( `${this.apiUrl}/logIn`, formData).pipe(
+  logIn(userData) {
+    return this.http.post<any>( `${this.apiUrl}/login`, userData).pipe(
       tap(user => {
-        if (user && user.token) {
-          localStorage.setItem('currentUser', JSON.stringify(user));
-        }
+        console.log(user);
 
       }),
       catchError(this.handleError('logIn', []))

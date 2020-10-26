@@ -2,13 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
+const cors = require('cors');
 
 const config = require('./configuration/config');
 const userRoute = require('./routes/users.route');
 const indexRoute = require('./routes/index.route');
 
 const app = express();
-
+app.use(cors())
 // connect to mongoDB 
 mongoose.connect(config.dbUrl, { useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.connection.on('connected', () => {

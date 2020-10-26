@@ -63,7 +63,19 @@ signup ={
   
   onSignupSubmit() {
    
-    alert(this.user.firstName + ' ' + this.user.lastName + ' ' + this.user.email + ' ' + this.user.password);
+    //alert(this.user.firstName + ' ' + this.user.lastName + ' ' + this.user.email + ' ' + this.user.password);
 
+    console.log(this.signupForm.value);
+    this.auth.signUp(this.signupForm.value)
+      .subscribe(
+        response =>
+        { if (response.success) {
+          console.log('Success!', response),
+          this.router.navigate(['/Login']);
+        } else {
+          console.log('Failed');
+        } 
+      }
+      );
   }
 }
