@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -21,7 +21,9 @@ export class AuthenticationService {
       return of(result as T);
     };
   }
-
+  @Output() isLoggedIn: EventEmitter<any> = new EventEmitter();
+  loggedInStatus = false;
+  redirectUrl: string;
   constructor(private http: HttpClient, private router: Router) { }
 
   signUp(userData) {
@@ -35,11 +37,11 @@ export class AuthenticationService {
 
   logIn(userData) {
     return this.http.post<any>( `${this.apiUrl}/login`, userData).pipe(
-      tap(user => {
-        console.log(user);
-
+      tap(_ => {
+        this.isLoggedIn.emit(true);
+        this.loggedInStatus = true;
       }),
-      catchError(this.handleError('logIn', []))
+      catchError(this.handleError('login', []))
     );
   }
 

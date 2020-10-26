@@ -17,8 +17,8 @@ import { ConfigService } from './config.service';
 import { NotfoundComponent } from './notfound/notfound.component';
 import {FormsModule} from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'
-import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
+import { TokenInterceptor } from './interceptors/token.interceptor';
 import { FeaturesComponent } from './features/features.component';
 import { ResetComponent } from './reset/reset.component';
 
@@ -48,7 +48,13 @@ import { ResetComponent } from './reset/reset.component';
     HttpClientModule,
 
   ],
-  providers: [ConfigService],
+  providers: [ConfigService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

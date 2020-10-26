@@ -53,13 +53,13 @@ login = {
   onLoginSubmit() {
    //alert(this.user.email + ' ' + this.user.password);
    console.log(this.loginForm.value);
-   this.auth.signUp(this.loginForm.value)
+   this.auth.logIn(this.loginForm.value)
      .subscribe(
        response => 
-      { if (response.success) {
-        console.log('Success!', response),
-        this.router.navigate(['/signup']);
-      } else {
+      {  if (response.token) {
+        localStorage.setItem('token', response.token);
+        this.router.navigate(['/Home']);
+      }else {
         console.log('Failed');
       } }
      );

@@ -4,12 +4,10 @@ const config = require('../configuration/config');
 
 const UserSchema = mongoose.Schema({
     firstName:{
-        type: String,
-        required: true
+        type: String
     },
     lastName:{
-        type: String,
-        required: true
+        type: String
     },
     email:{
         type: String,
@@ -24,6 +22,7 @@ const UserSchema = mongoose.Schema({
         default: Date.now()
     }
 })
+
 
 const User = mongoose.model('User', UserSchema);
 
