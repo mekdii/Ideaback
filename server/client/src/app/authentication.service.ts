@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable , of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-
+import * as jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -38,32 +38,46 @@ export class AuthenticationService {
   logIn(userData) {
     return this.http.post<any>( `${this.apiUrl}/login`, userData).pipe(
       tap(_ => {
+        this.doLogin(userData);
         this.isLoggedIn.emit(true);
         this.loggedInStatus = true;
       }),
       catchError(this.handleError('login', []))
     );
   }
-
-  logout() {
-    if (localStorage.getItem('currentUser')) {
-      localStorage.removeItem('currentUser');
-      this.router.navigate(['/home']);
-    }
+  doLogin(user: any) {
+    localStorage.setItem('currentUser', JSON.stringify(user));
+}
+ 
+getCurrentUser() {
+  if (this.isloggedIn) {
+    return JSON.parse(localStorage.getItem('currentUser'));
   }
+}
+
+getDecodeToken(token: string) {
+  return jwt_decode(token);
+}
 
   isloggedIn() {
-    if (localStorage.getItem('currentUser')) {
-      return true;
-    } else {
-      return false;
+    const currentUser = this.getCurrentUser();
+    if (currentUser) {
+      const token = this.getDecodeToken(currentUser.token);
+      const currentTime = Math.round((new Date()).getTime() / 1000);
+      if (token.exp > currentTime) {
+        return true;
+      } else {
+        this.logout();
+      }
     }
-  }
+    return false;
+    }
 
-  getUser() {
-    if (this.isloggedIn) {
-      return JSON.parse(localStorage.getItem('currentUser'));
+    logout() {
+      if (localStorage.getItem('currentUser')) {
+        localStorage.removeItem('currentUser');
+        this.router.navigate(['/Home']);
+      }
     }
-  }
 
 }

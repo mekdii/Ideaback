@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { RouteguardService } from '../routeguard.service';
 
 import { ContractsComponent } from './contracts/contracts.component';
 import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
@@ -12,6 +13,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 const UserDashboardRoutes: Routes = [{
   path: '',
   component: UserDashboardComponent,
+  canActivate: [RouteguardService],
   children: [
     {
       path: '',
