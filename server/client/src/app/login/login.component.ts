@@ -58,7 +58,7 @@ login = {
        response => 
       {  if (response.token) {
         localStorage.setItem('token', response.token);
-        this.router.navigate(['/Home']);
+        this.router.navigate(['/Dashboard']);
       }else {
         console.log('Failed');
       } }

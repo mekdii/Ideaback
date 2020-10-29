@@ -17,6 +17,10 @@ const routes: Routes = [
   {path: 'Signup', component: SignupComponent},
   {path: 'Reset', component: ResetComponent},
    {path: 'Contact', component: ContactComponent},
+   {
+    path: 'Dashboard',
+    loadChildren: () => import('./user-dashboard/user-dashboard.module').then(m => m.UserDashboardModule)
+  },
   {path: '404', component: NotfoundComponent},
    {path: '**', redirectTo: '/404'}
   

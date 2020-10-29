@@ -21,7 +21,7 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { FeaturesComponent } from './features/features.component';
 import { ResetComponent } from './reset/reset.component';
-
+import {UserDashboardModule}from './user-dashboard/user-dashboard.module'
 
 @NgModule({
   declarations: [
@@ -46,6 +46,7 @@ import { ResetComponent } from './reset/reset.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    UserDashboardModule
 
   ],
   providers: [ConfigService,

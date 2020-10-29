@@ -12,10 +12,11 @@ import { EventsComponent } from './events/events.component';
 import { StartDateComponent } from './events/start-date/start-date.component';
 import { EndDateComponent } from './events/end-date/end-date.component';
 import { ProfileComponent } from './profile/profile.component';
+import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
 
 
 @NgModule({
-  declarations: [UserDashboardComponent, TemplatesComponent, ContractsComponent, AddContractComponent, EditContractComponent, DetailContractComponent, EventsComponent, StartDateComponent, EndDateComponent, ProfileComponent],
+  declarations: [UserDashboardComponent, TemplatesComponent, ContractsComponent, AddContractComponent, EditContractComponent, DetailContractComponent, EventsComponent, StartDateComponent, EndDateComponent, ProfileComponent, DashboardHomeComponent],
   imports: [
     CommonModule,
     UserDashboardRoutingModule
