@@ -80,7 +80,10 @@ paymentMethod:{
 },
 collector:{
     type: String
-}
+},
+terms:String,
+lSignature:Image,
+tSignature:Image
 
 })
 
