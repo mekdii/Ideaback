@@ -15,10 +15,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
+import { RentalComponent } from './templates/rental/rental.component';
 
 
 @NgModule({
-  declarations: [UserDashboardComponent, TemplatesComponent, ContractsComponent, AddContractComponent, EditContractComponent, DetailContractComponent, EventsComponent, StartDateComponent, EndDateComponent, ProfileComponent, DashboardHomeComponent, NavigationComponent, FooterComponent],
+  declarations: [UserDashboardComponent, TemplatesComponent, ContractsComponent, AddContractComponent, EditContractComponent, DetailContractComponent, EventsComponent, StartDateComponent, EndDateComponent, ProfileComponent, DashboardHomeComponent, NavigationComponent, FooterComponent, RentalComponent],
   imports: [
     CommonModule,
     UserDashboardRoutingModule
