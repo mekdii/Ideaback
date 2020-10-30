@@ -16,10 +16,12 @@ import { DashboardHomeComponent } from './dashboard-home/dashboard-home.componen
 import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
 import { RentalComponent } from './templates/rental/rental.component';
+import { FormsComponent } from './templates/forms/forms.component';
+
 
 
 @NgModule({
-  declarations: [UserDashboardComponent, TemplatesComponent, ContractsComponent, AddContractComponent, EditContractComponent, DetailContractComponent, EventsComponent, StartDateComponent, EndDateComponent, ProfileComponent, DashboardHomeComponent, NavigationComponent, FooterComponent, RentalComponent],
+  declarations: [UserDashboardComponent, TemplatesComponent, ContractsComponent, AddContractComponent, EditContractComponent, DetailContractComponent, EventsComponent, StartDateComponent, EndDateComponent, ProfileComponent, DashboardHomeComponent, NavigationComponent, FooterComponent, RentalComponent, FormsComponent],
   imports: [
     CommonModule,
     UserDashboardRoutingModule

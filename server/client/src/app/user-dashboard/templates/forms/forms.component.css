@@ -1,0 +1,38 @@
+.heading{
+    margin-top: 10px;
+    margin-bottom: -25px;
+}
+
+.main-header{
+    background-color: #1a0f4d;
+    color: #fff;
+    height: 50px;
+    margin-top: 10px;
+  margin-bottom: 10px;
+    padding-top: 10px;
+}
+.wrapb form label{
+    color: #1a0f4d;
+    font-weight: bold;
+}
+.wrapb form .clear{
+    float: right;
+    font-weight: bold;
+    color: #1a0f4d;
+}
+.wrapb .opt{
+  align-self: center;
+  margin-left: 25%;
+
+}
+.wrapb .opt .btn{
+    background-color: #221C69;
+    color: #fff;
+    width: 100px;
+    height: 50px;
+    border-radius: 15px;
+}
+.wrapb .opt .btn:hover{
+    background-color: #f5ca3c;
+    color: #000;
+}

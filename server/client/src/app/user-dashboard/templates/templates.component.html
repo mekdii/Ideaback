@@ -1,3 +1,4 @@
+<app-navigation></app-navigation>
 <div class="content-wrapper ">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
@@ -14,7 +15,7 @@
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
               <div class="icon-box">
                 <div class="icon"> <img src="../../../assets/img/icon/home.png" alt="" srcset="" width="50px"> </div>
-                <h4><a href="rental.html">Home Rental</a></h4>
+                <h4><a routerLink="rental">Home Rental</a></h4>
                 <p>Sample house rental & agreement template specifing the following details: Contact details of both parties; property...</p>
               </div>
             </div>
@@ -68,4 +69,4 @@
       <app-footer></app-footer>
     </div>
   </div>
- 
+  <router-outlet></router-outlet>
