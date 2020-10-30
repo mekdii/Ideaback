@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {FormsModule}from '@angular/forms';
+import{ReactiveFormsModule} from '@angular/forms'
 
 import { UserDashboardRoutingModule } from './user-dashboard-routing.module';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
@@ -24,7 +26,9 @@ import { FormsComponent } from './templates/forms/forms.component';
   declarations: [UserDashboardComponent, TemplatesComponent, ContractsComponent, AddContractComponent, EditContractComponent, DetailContractComponent, EventsComponent, StartDateComponent, EndDateComponent, ProfileComponent, DashboardHomeComponent, NavigationComponent, FooterComponent, RentalComponent, FormsComponent],
   imports: [
     CommonModule,
-    UserDashboardRoutingModule
+    UserDashboardRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class UserDashboardModule { }

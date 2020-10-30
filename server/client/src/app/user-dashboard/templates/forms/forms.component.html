@@ -8,7 +8,7 @@
         </div>
        
 
-        <form action="">
+        <form [formGroup]="rentalForm">
         <div class="row ">
          
           <div class=" col-md-12">
@@ -34,25 +34,25 @@
               <div class="row">
                 <div class="form-group col">
                   <label for="">First Name</label>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" formControlName="lFirstName">
                 </div>
                 <div class="form-group col">
                   <label for="">Last Name</label>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" formControlName="lLastName">
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="">Address</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" formControlName="address">
               </div>
               <div class="form-group">
                 <label for="">Phone</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" formControlName="lPhone">
               </div>
               <div class="form-group">
                 <label for="">Email</label>
-                <input type="email" class="form-control">
+                <input type="email" class="form-control" formControlName="lemail">
               </div>
             
           </div>
@@ -63,28 +63,25 @@
               <div class="row">
                 <div class="form-group col">
                   <label for="">First Name <span><i class="fa fa-asterisk "></i></span></label>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" formControlName="tFirstName">
                 </div>
                 <div class="form-group col">
                   <label for="">Last Name</label>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" formControlName="tLastName">
                 </div>
               </div>
               <div class="form-group">
                 <label for="">Phone</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" formControlName="tPhone">
               </div>
               <div class="form-group">
                 <label for="">Email</label>
-                <input type="email" class="form-control">
+                <input type="email" class="form-control" formControlName="temail">
               </div>
-              <div class="form-group">
-                <label for="">Phone</label>
-                <input type="text" class="form-control">
-              </div>
+            
               <div class="form-group">
                 <label for="">Number Of Occupants</label>
-                <input type="number" class="form-control">
+                <input type="number" class="form-control" formControlName="occupants">
               </div>
           
           </div>
@@ -112,7 +109,7 @@
                 <div class="col">
                   <div class="form-group ">
                     <label>State</label>
-                    <input type="text" formControlName="state" class="form-control">
+                    <input type="text" formControlName="state" class="form-control" >
                   </div>
                   <div class="form-group">
                     <label for="">Country</label>
@@ -123,22 +120,22 @@
                 <div class="col">
                   <div class="form-group">
                     <label>City</label>
-                    <input type="country" class="form-control">
+                    <input type="text" class="form-control" formControlName="city">
                   </div>
                   <div class="form-group">
                     <label>Postal Code</label>
-                    <input type="text" formControlName="postalCode" class="form-control">
+                    <input type="text" formControlName="postal" class="form-control" >
                   </div>
                 </div>
                 <div class="col">
                   <div class="form-group">
                     <label>Start Date of Agreement</label>
-                    <input type="date" class="form-control">
+                    <input type="date" class="form-control" formControlName="startDate">
                   </div>
                   <div class="form-group">
                     <label>End Date of Agreement
                     </label>
-                    <input type="date" formControlName="postalCode" class="form-control">
+                    <input type="date" formControlName="endDate" class="form-control" >
                   </div>
                   <div class="form-group">
                     <label for="">Pay Period</label>
@@ -161,15 +158,15 @@
               </div>
               <div class="form-group">
                 <label for="">Rent Amount per Month</label>
-                <input type="number" class="form-control">
+                <input type="number" class="form-control" formControlName="rentAmount">
               </div>
               <div class="form-group">
                 <label for="">Security Deposit</label>
-                <input type="number" class="form-control">
+                <input type="number" class="form-control" formControlName="securityDeposit">
               </div>
               <div class="form-group">
                 <label for="">Late Charges</label>
-                <input type="number" class="form-control">
+                <input type="number" class="form-control" formControlName="lateCharge">
               </div>
               <div class="form-group">
                 <label for="">Payment Method</label>
@@ -183,7 +180,7 @@
               </div>
               <div class="form-group">
                 <label for="">Collector</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" formControlName="collector">
               </div>
           </div>
           <div class=" col-md-12">
@@ -200,18 +197,18 @@
           
             <div class="form-group">
 
-              <textarea class="form-control" name="" id="" cols="30" rows="10"
+              <textarea class="form-control" formControlName="terms" name="" id="" cols="30" rows="10"
                 placeholder="Insaert your terms and conditions"></textarea>
             </div>
             <div class="signiture">
               <div class="form-group">
                 <label for="">Landlord Signature</label>
-                <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
+                <textarea class="form-control" formControlName="lSignature" name="" id="" cols="30" rows="10"></textarea>
                 <a href="" class="clear">Clear</a>
               </div>
               <div class="form-group">
                 <label for="">Tenant Signature</label>
-                <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
+                <textarea class="form-control" formControlName="tSignature" name="" id="" cols="30" rows="10"></textarea>
                 <a href="" class="clear">Clear</a>
               </div>
             </div>

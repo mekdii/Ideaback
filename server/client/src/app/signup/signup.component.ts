@@ -63,8 +63,7 @@ signup ={
   
   onSignupSubmit() {
    
-    //alert(this.user.firstName + ' ' + this.user.lastName + ' ' + this.user.email + ' ' + this.user.password);
-
+   
     console.log(this.signupForm.value);
     this.auth.signUp(this.signupForm.value)
       .subscribe(
