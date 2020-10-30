@@ -2,7 +2,10 @@ const express = require('express');
 const router = express.Router();
 
 const Contact = require('../models/Contacts');
-//Register handle
+
+
+
+//Contact handle
 router.post('/contact', (req, res)=>{
     let contact = new Contact({
         name: req.body.name,
@@ -18,4 +21,8 @@ router.post('/contact', (req, res)=>{
         return res.json({success: true, message: result});
     });
 });
+
+
+
+
 module.exports = router;
