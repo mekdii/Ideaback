@@ -2,12 +2,11 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
-
 const config = require('../configuration/config');
 const Rental = require('../models/Rental');
 
 //Rental Handle
-router.post('/rental',passport.authenticate('jwt', {session:false}), (req, res, next) => {
+router.post('/rental', passport.authenticate('jwt', {session:false}), (req, res, next) => {
     const token = getToken(req.headers);
     let rental = new Rental({
       date:req.body.date,
@@ -48,6 +47,31 @@ router.post('/rental',passport.authenticate('jwt', {session:false}), (req, res, 
     return res.status(403).send({success: false, message: 'Unauthorized.'});
   }
 
+});
+//get rental form
+router.get('/rental', passport.authenticate('jwt', { session: false}), function(req, res) {
+  const token = getToken(req.headers);
+  if (token) {
+      Rental.find(function (err, rental) {
+      if (err) return next(err);
+      res.json(rental);
+    });
+  } else {
+    return res.status(403).send({success: false, msg: 'Unauthorized.'});
+  }
+});
+
+//Get rental form id
+router.get('/rental/:id', passport.authenticate('jwt', {session:false}), (req, res, next) => {
+  const token = getToken(req.headers);
+  if (token) {
+    Rental.findById(req.params.id, function (err, rental) {
+      if (err) return next(err);
+      res.json(rental);
+    });
+  } else {
+    return res.status(403).send({success: false, msg: 'Unauthorized.'});
+  }
 });
 
 
