@@ -34,25 +34,25 @@
               <div class="row">
                 <div class="form-group col">
                   <label for="">First Name</label>
-                  <input type="text" class="form-control" formControlName="lFirstName">
+                  <input type="text" class="form-control" [class.is-invalid]="lFirstName.invalid && lFirstName.touched" formControlName="lFirstName">
                 </div>
                 <div class="form-group col">
                   <label for="">Last Name</label>
-                  <input type="text" class="form-control" formControlName="lLastName">
+                  <input type="text" class="form-control" [class.is-invalid]="lLastName.invalid && lLastName.touched" formControlName="lLastName">
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="">Address</label>
-                <input type="text" class="form-control" formControlName="address">
+                <input type="text" class="form-control" [class.is-invalid]="address.invalid && address.touched" formControlName="address">
               </div>
               <div class="form-group">
                 <label for="">Phone</label>
-                <input type="text" class="form-control" formControlName="lPhone">
+                <input type="text" class="form-control" [class.is-invalid]="lPhone.invalid && lPhone.touched" formControlName="lPhone">
               </div>
               <div class="form-group">
                 <label for="">Email</label>
-                <input type="email" class="form-control" formControlName="lemail">
+                <input type="email" class="form-control" [class.is-invalid]="lemail.invalid && lemail.touched" formControlName="lemail">
               </div>
             
           </div>
@@ -63,25 +63,25 @@
               <div class="row">
                 <div class="form-group col">
                   <label for="">First Name <span><i class="fa fa-asterisk "></i></span></label>
-                  <input type="text" class="form-control" formControlName="tFirstName">
+                  <input type="text" class="form-control" [class.is-invalid]="tFirstName.invalid && tFirstName.touched" formControlName="tFirstName">
                 </div>
                 <div class="form-group col">
                   <label for="">Last Name</label>
-                  <input type="text" class="form-control" formControlName="tLastName">
+                  <input type="text" class="form-control" [class.is-invalid]="tLastName.invalid && tLastName.touched" formControlName="tLastName">
                 </div>
               </div>
               <div class="form-group">
                 <label for="">Phone</label>
-                <input type="text" class="form-control" formControlName="tPhone">
+                <input type="text" class="form-control" [class.is-invalid]="tPhone.invalid && tPhone.touched" formControlName="tPhone">
               </div>
               <div class="form-group">
                 <label for="">Email</label>
-                <input type="email" class="form-control" formControlName="temail">
+                <input type="email" class="form-control" [class.is-invalid]="temail.invalid && temail.touched" formControlName="temail">
               </div>
             
               <div class="form-group">
                 <label for="">Number Of Occupants</label>
-                <input type="number" class="form-control" formControlName="occupants">
+                <input type="number" class="form-control"  formControlName="occupants">
               </div>
           
           </div>
@@ -109,33 +109,33 @@
                 <div class="col">
                   <div class="form-group ">
                     <label>State</label>
-                    <input type="text" formControlName="state" class="form-control" >
+                    <input type="text" formControlName="state" class="form-control"  >
                   </div>
                   <div class="form-group">
                     <label for="">Country</label>
-                    <select class="selectpicker countrypicker form-control" data-live-search="true"></select>
+                    <select class="selectpicker countrypicker form-control"  formControlName="country" [class.is-invalid]="country.invalid && country.touched" data-live-search="true"></select>
                   </div>
                 </div>
 
                 <div class="col">
                   <div class="form-group">
                     <label>City</label>
-                    <input type="text" class="form-control" formControlName="city">
+                    <input type="text" class="form-control" [class.is-invalid]="city.invalid && city.touched" formControlName="city">
                   </div>
                   <div class="form-group">
                     <label>Postal Code</label>
-                    <input type="text" formControlName="postal" class="form-control" >
+                    <input type="text" formControlName="postal" class="form-control"  >
                   </div>
                 </div>
                 <div class="col">
                   <div class="form-group">
                     <label>Start Date of Agreement</label>
-                    <input type="date" class="form-control" formControlName="startDate">
+                    <input type="date" class="form-control" [class.is-invalid]="startDate.invalid && startDate.touched" formControlName="startDate">
                   </div>
                   <div class="form-group">
                     <label>End Date of Agreement
                     </label>
-                    <input type="date" formControlName="endDate" class="form-control" >
+                    <input type="date" formControlName="endDate" class="form-control" [class.is-invalid]="endDate.invalid && endDate.touched" >
                   </div>
                   <div class="form-group">
                     <label for="">Pay Period</label>
@@ -158,24 +158,21 @@
               </div>
               <div class="form-group">
                 <label for="">Rent Amount per Month</label>
-                <input type="number" class="form-control" formControlName="rentAmount">
+                <input type="number" class="form-control" [class.is-invalid]="rentAmount.invalid && rentAmount.touched" formControlName="rentAmount">
               </div>
               <div class="form-group">
                 <label for="">Security Deposit</label>
-                <input type="number" class="form-control" formControlName="securityDeposit">
+                <input type="number" class="form-control"  formControlName="securityDeposit">
               </div>
               <div class="form-group">
                 <label for="">Late Charges</label>
-                <input type="number" class="form-control" formControlName="lateCharge">
+                <input type="number" class="form-control" [class.is-invalid]="lateCharge.invalid && lateCharge.touched" formControlName="lateCharge">
               </div>
               <div class="form-group">
                 <label for="">Payment Method</label>
-                <select class="custom-select">
-                  <option value="default">Choose payment method</option>
-                  <option value="">Cash</option>
-                  <option value="">Check</option>
-                  <option value="">Paypal</option>
-                  <option value="">CBE Birr</option>
+                <select class="custom-select"  formControlName="paymentMethod">
+                   <option value="default">Choose payment method</option>
+                  <option *ngFor="let method of paymentMethod">{{ method }}</option>
                 </select>
               </div>
               <div class="form-group">
@@ -197,13 +194,13 @@
           
             <div class="form-group">
 
-              <textarea class="form-control" formControlName="terms" name="" id="" cols="30" rows="10"
+              <textarea class="form-control" [class.is-invalid]="terms.invalid && terms.touched" formControlName="terms" name="" id="" cols="30" rows="10"
                 placeholder="Insaert your terms and conditions"></textarea>
             </div>
             <div class="signiture">
               <div class="form-group">
                 <label for="">Landlord Signature</label>
-                <textarea class="form-control" formControlName="lSignature" name="" id="" cols="30" rows="10"></textarea>
+                <textarea class="form-control"  formControlName="lSignature" name="" id="" cols="30" rows="10"></textarea>
                 <a href="" class="clear">Clear</a>
               </div>
               <div class="form-group">

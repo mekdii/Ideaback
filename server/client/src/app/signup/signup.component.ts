@@ -60,10 +60,10 @@ signup ={
   get password() {
     return this.signupForm.get('password');
   }
-  
+
   onSignupSubmit() {
    
-   
+  
     console.log(this.signupForm.value);
     this.auth.signUp(this.signupForm.value)
       .subscribe(

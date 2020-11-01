@@ -82,8 +82,8 @@ collector:{
     type: String
 },
 terms:String,
-lSignature:Image,
-tSignature:Image
+lSignature:String,
+tSignature:String
 
 })
 
