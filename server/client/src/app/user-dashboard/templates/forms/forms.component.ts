@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { FormService } from './form.service';
 import {RentalModel} from './rental'
 
 @Component({
@@ -9,10 +11,10 @@ import {RentalModel} from './rental'
 })
 export class FormsComponent implements OnInit {
   rental: RentalModel = new RentalModel();
-  paymentMethod = ['Cash', 'Check', 'Paypal', 'CBE Birr'];
+ 
   rentalForm : FormGroup;
 
-  constructor( private fb: FormBuilder,) { }
+  constructor( private fb: FormBuilder, private fs: FormService,  private router: Router,) { }
 
   ngOnInit(): void {
     this.rentalForm = this.fb.group({
@@ -83,12 +85,30 @@ export class FormsComponent implements OnInit {
     get rentAmount(){
       return this.rentalForm.get('rentAmount');
     }
+    get paymentMethod(){
+     
+      return this.rentalForm.get('paymentMethod');
+    }
     get lateCharge(){
       return this.rentalForm.get('lateCharge');
     }
     
     get terms(){
       return this.rentalForm.get('terms');
+    }
+
+    onRentalSubmit(){
+      this.fs.submitForm(this.rentalForm.value)
+      .subscribe(
+        response =>
+        { if (response.success) {
+          console.log('Success!', response),
+          this.router.navigate(['/Login']);
+        } else {
+          console.log('Failed');
+        } 
+      }
+      );
     }
 
   }

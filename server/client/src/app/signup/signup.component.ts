@@ -70,7 +70,7 @@ signup ={
         response =>
         { if (response.success) {
           console.log('Success!', response),
-          this.router.navigate(['/Login']);
+          this.router.navigate(['/contract']);
         } else {
           console.log('Failed');
         } 

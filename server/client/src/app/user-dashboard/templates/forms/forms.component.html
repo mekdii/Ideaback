@@ -8,7 +8,7 @@
         </div>
        
 
-        <form [formGroup]="rentalForm">
+        <form [formGroup]="rentalForm" (submit)="rentalForm.valid && onRentalSubmit()">
         <div class="row ">
          
           <div class=" col-md-12">
@@ -170,9 +170,12 @@
               </div>
               <div class="form-group">
                 <label for="">Payment Method</label>
-                <select class="custom-select"  formControlName="paymentMethod">
-                   <option value="default">Choose payment method</option>
-                  <option *ngFor="let method of paymentMethod">{{ method }}</option>
+                <select class="custom-select">
+                  <option value="default">Choose payment method</option>
+                  <option value="">Cash</option>
+                  <option value="">Check</option>
+                  <option value="">Paypal</option>
+                  <option value="">CBE Birr</option>
                 </select>
               </div>
               <div class="form-group">

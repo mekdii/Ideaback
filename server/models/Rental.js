@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const RentalSchema = mongoose.Schema ({
-
+ id: String,
 //land lord Information
 lFirstName:{
     type: String

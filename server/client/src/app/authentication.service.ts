@@ -13,7 +13,7 @@ export class AuthenticationService {
 
   apiUrl = 'http://localhost:3000/users';
 
-
+  
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error); 
