@@ -27,7 +27,7 @@ const UserDashboardRoutes: Routes = [{
         { path: 'events', component: EventsComponent },
         { path: 'profile', component: ProfileComponent },
         { path: 'Dashboard', component: UserDashboardComponent },
-       { path: '', component: DashboardHomeComponent }
+        { path: '', component: DashboardHomeComponent }
       ]
     }
   ]}

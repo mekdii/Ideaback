@@ -9,10 +9,10 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class FormService {
   apiUrl = 'http://localhost:3000/forms';
-  
-  private handleError<T> (operation = 'operation', result?: T) {
+
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      console.error(error); 
+      console.error(error);
       console.log(`${operation} failed: ${error.message}`);
       return of(result as T);
     };
@@ -22,20 +22,33 @@ export class FormService {
   redirectUrl: string;
 
   constructor(private http: HttpClient, private router: Router) { }
+
   submitForm(userData) {
-    if (this.isLoggedIn) {
-    return this.http.post<any>( `${this.apiUrl}/rental`, userData).pipe(
-     
+
+    return this.http.post<any>(`${this.apiUrl}/rental`, userData).pipe(
+
       tap(contract => {
         console.log(contract);
-       
+
       }),
-      catchError(this.handleError('signUp', []))
+      catchError(this.handleError('rental', []))
     );
-    }else {
-      this.router.navigate(['/Login']);
-    }
-  
+  }
+
+
+  getForm(): Observable<any> {
+    const url = `${this.apiUrl}/rental`;
+    return this.http.get<any>(url).pipe(
+      tap(_ => console.log(`fetched post `)),
+      catchError(this.handleError<any>(`getPost`))
+    );
+  }
+  getContract(id: any): Observable<any> {
+    const url = `${this.apiUrl}/rental/${id}`;
+    return this.http.get<any>(url).pipe(
+      tap(_ => console.log(`fetched contract by id=${id}`)),
+      catchError(this.handleError<any>(`getContract id=${id}`))
+    );
   }
 
 }

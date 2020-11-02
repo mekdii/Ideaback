@@ -1,4 +1,4 @@
-export class RentalModel{
+export class Rental{
   
 //land lord Information String;
 lLastName:String;

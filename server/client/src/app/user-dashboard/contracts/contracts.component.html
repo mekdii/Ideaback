@@ -36,7 +36,7 @@
               </a>
             </th>
             <th class="th-lg">
-              <a href="">Business Partner
+              <a href="">Buisness Partner
               </a>
             </th>
     
@@ -59,12 +59,12 @@
 
         <!--Table body-->
         <tbody>
-          <tr>
+          <tr  *ngFor="let contract of data">
            
+            <td>Rental</td>
+            <td>{{contract.tFirstName}}</td>
+            <td>{{contract.date | date}}</td>
             <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>Mark</td>
            
             <td> 
               <div class="btn-action">
@@ -74,67 +74,7 @@
               </div>
             </td>
           </tr>
-          <tr>
-          
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>Jacob</td>
-           
-            <td> 
-              <div class="btn-action">
-                <a class="btn btn-primary" href="#" alt="Info"><i class="fa fa-info-circle"></i></a>
-                <a class="btn btn-success" href="#"><i class="fa fa-pencil"></i></a>
-               <a class="btn btn-danger" href="#"><i class="fa fa-trash"></i></a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>Larry</td>
-            
-            <td> 
-              <div class="btn-action">
-                <a class="btn btn-primary" href="#" alt="Info"><i class="fa fa-info-circle"></i></a>
-                <a class="btn btn-success" href="#"><i class="fa fa-pencil"></i></a>
-               <a class="btn btn-danger" href="#"><i class="fa fa-trash"></i></a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-          
-            <td>Paul</td>
-            <td>Topolski</td>
-            <td>@P_Topolski</td>
-            <td>Paul</td>
-            
-            <td> 
-              <div class="btn-action">
-                <a class="btn btn-primary" href="#" alt="Info"><i class="fa fa-info-circle"></i></a>
-                <a class="btn btn-success" href="#"><i class="fa fa-pencil"></i></a>
-               <a class="btn btn-danger" href="#"><i class="fa fa-trash"></i></a>
-              </div>
-            </td>
-          
-          </tr>
-          <tr>
-           
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>Larry</td>
-           
-            <td> 
-              <div class="btn-action">
-                <a class="btn btn-primary" href="#" alt="Info"><i class="fa fa-info-circle"></i></a>
-                <a class="btn btn-success" href="#"><i class="fa fa-pencil"></i></a>
-               <a class="btn btn-danger" href="#"><i class="fa fa-trash"></i></a>
-              </div>
-            </td>
-          </tr>
+    
         </tbody>
         <!--Table body-->
       </table>

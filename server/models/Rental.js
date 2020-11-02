@@ -62,7 +62,7 @@ startDate:{
     type: Date
 },
 endDate:{
-    type: Number
+    type: Date
 },
 payPeriod :String,
 

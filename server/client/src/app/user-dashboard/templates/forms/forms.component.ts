@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormService } from './form.service';
-import {RentalModel} from './rental'
+import {Rental} from './rental'
 
 @Component({
   selector: 'app-forms',
@@ -10,7 +10,7 @@ import {RentalModel} from './rental'
   styleUrls: ['./forms.component.css']
 })
 export class FormsComponent implements OnInit {
-  rental: RentalModel = new RentalModel();
+  rental: Rental = new Rental();
  
   rentalForm : FormGroup;
 
@@ -27,8 +27,9 @@ export class FormsComponent implements OnInit {
       tLastName: ['', [Validators.required, Validators.minLength(3)]],
       temail: ['', [Validators.required, Validators.email]],
       tPhone: ['', [Validators.required]],
-      country: ['', [Validators.required]],
+    occupants: [''],
       city: ['', [Validators.required]],
+      state: [''],
       startDate: ['', [Validators.required]],
       endDate: ['', [Validators.required]],
      
@@ -66,6 +67,12 @@ export class FormsComponent implements OnInit {
     }
     get tPhone(){
       return this.rentalForm.get('tPhone');
+    }
+    get occupants(){
+      return this.rentalForm.get('occupants');
+    }
+    get state(){
+      return this.rentalForm.get('state');
     }
     get country(){
       return this.rentalForm.get('country');
