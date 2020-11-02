@@ -1,3 +1,4 @@
+  
 const mongoose = require('mongoose');
 
 const RentalSchema = mongoose.Schema ({
@@ -101,10 +102,4 @@ Rental.addRental = (rental, cb)=>{
         }
     });
 }
-
-
-
-
-
-
 module.exports = Rental;

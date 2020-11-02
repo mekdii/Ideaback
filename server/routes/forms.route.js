@@ -8,6 +8,7 @@ const Rental = require('../models/Rental');
 //Rental Handle
 router.post('/rental', passport.authenticate('jwt', {session:false}), (req, res, next) => {
     const token = getToken(req.headers);
+
     let rental = new Rental({
       date:req.body.date,
         lFirstName: req.body.lFirstName,
@@ -46,15 +47,14 @@ router.post('/rental', passport.authenticate('jwt', {session:false}), (req, res,
 }else{
     return res.status(403).send({success: false, message: 'Unauthorized.'});
   }
-
 });
-//get rental form
+
 router.get('/rental', passport.authenticate('jwt', { session: false}), function(req, res) {
-  const token = getToken(req.headers);
+  var token = getToken(req.headers);
   if (token) {
-      Rental.find(function (err, rental) {
+      Rental.find(function (err, posts) {
       if (err) return next(err);
-      res.json(rental);
+      res.json(posts);
     });
   } else {
     return res.status(403).send({success: false, msg: 'Unauthorized.'});
@@ -62,18 +62,17 @@ router.get('/rental', passport.authenticate('jwt', { session: false}), function(
 });
 
 //Get rental form id
-router.get('/rental/:id', passport.authenticate('jwt', {session:false}), (req, res, next) => {
-  const token = getToken(req.headers);
-  if (token) {
-    Rental.findById(req.params.id, function (err, rental) {
-      if (err) return next(err);
-      res.json(rental);
-    });
-  } else {
-    return res.status(403).send({success: false, msg: 'Unauthorized.'});
-  }
-});
-
+router.get('/rental/:id', passport.authenticate('jwt', { session: false}), function(req, res, next) {
+    var token = getToken(req.headers);
+    if (token) {
+      Rental.findById(req.params.id, function (err, post) {
+        if (err) return next(err);
+        res.json(post);
+      });
+    } else {
+      return res.status(403).send({success: false, msg: 'Unauthorized.'});
+    }
+  });
 
 //Add a function to get and extract the token from the request headers.
   getToken = function (headers) {
