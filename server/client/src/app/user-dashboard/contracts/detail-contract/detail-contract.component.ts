@@ -22,7 +22,7 @@ export class DetailContractComponent implements OnInit {
     tLastName:' ',
     temail:' ',
     tPhone: null,
-    tOcuupants:null,
+    occupants:null,
     
     //Rental Information//
     

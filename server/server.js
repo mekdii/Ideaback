@@ -37,9 +37,7 @@ app.use('/forms', formsRoute);
 app.use(express.static(__dirname + '/public'));
 
 //set up our route
-app.get('/', (req, res)=>{
-    res.sendFile(path.join(__dirname, 'public/index.html'))
-})
+
 
 
 const PORT = process.env.PORT || 3000;

@@ -1,228 +1,228 @@
 <div id="content">
-    <!-- ======= Form Section ======= -->
-    <section id="contact" class="contact container-100 " style="background: rgba(34, 28, 105, 0.603);">
-      <div class="container wrapb mx-auto" data-aos="fade-up">
-        <div class="section-title">
-          <p class="text-center"><a href="index.html"><img src="assets/img/create.png" alt="" srcset="" width="70px"></a></p>
-        <h3 class="text-center heading" style="font-size: 24px;">Basic rental agreement</h3>
+  <!-- ======= Form Section ======= -->
+  <section id="contact" class="contact container-100 " style="background: rgba(34, 28, 105, 0.603);">
+    <div class="container wrapb mx-auto" data-aos="fade-up">
+      <div class="section-title">
+        <p class="text-center"><a href="index.html"><img src="assets/img/create.png" alt="" srcset="" width="70px"></a></p>
+      <h3 class="text-center heading" style="font-size: 24px;">Basic rental agreement</h3>
+      </div>
+     
+
+      <form [formGroup]="rentalForm" (submit)="rentalForm.valid && onRentalSubmit()">
+      <div class="row ">
+       
+        <div class=" col-md-12">
+          <div class="main-header row">
+            <div class="col-md-6">
+              <h4>Land Lord Information</h4>
+            </div>
+            <div class="col-md-6">
+              <h4> Tenant Information</h4>
+        
+            </div>
+          </div>
+       
+        </div>
+        
+       
+        <!-- ======= Land Lord Information ======= -->
+        <div class="col-md-6">
+         
+            <div class="row">
+
+            </div>
+            <div class="row">
+              <div class="form-group col">
+                <label for="">First Name</label>
+                <input type="text" class="form-control" [class.is-invalid]="lFirstName.invalid && lFirstName.touched" formControlName="lFirstName">
+              </div>
+              <div class="form-group col">
+                <label for="">Last Name</label>
+                <input type="text" class="form-control" [class.is-invalid]="lLastName.invalid && lLastName.touched" formControlName="lLastName">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="">Address</label>
+              <input type="text" class="form-control" [class.is-invalid]="address.invalid && address.touched" formControlName="address">
+            </div>
+            <div class="form-group">
+              <label for="">Phone</label>
+              <input type="text" class="form-control" [class.is-invalid]="lPhone.invalid && lPhone.touched" formControlName="lPhone">
+            </div>
+            <div class="form-group">
+              <label for="">Email</label>
+              <input type="email" class="form-control" [class.is-invalid]="lemail.invalid && lemail.touched" formControlName="lemail">
+            </div>
+          
+        </div>
+        <!-- ======= Tenat Information ======= -->
+        <div class="col-md-6">
+          
+
+            <div class="row">
+              <div class="form-group col">
+                <label for="">First Name <span><i class="fa fa-asterisk "></i></span></label>
+                <input type="text" class="form-control" [class.is-invalid]="tFirstName.invalid && tFirstName.touched" formControlName="tFirstName">
+              </div>
+              <div class="form-group col">
+                <label for="">Last Name</label>
+                <input type="text" class="form-control" [class.is-invalid]="tLastName.invalid && tLastName.touched" formControlName="tLastName">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="">Phone</label>
+              <input type="text" class="form-control" [class.is-invalid]="tPhone.invalid && tPhone.touched" formControlName="tPhone">
+            </div>
+            <div class="form-group">
+              <label for="">Email</label>
+              <input type="email" class="form-control" [class.is-invalid]="temail.invalid && temail.touched" formControlName="temail">
+            </div>
+          
+            <div class="form-group">
+              <label for="">Number Of Occupants</label>
+              <input type="number" class="form-control"  formControlName="occupants">
+            </div>
+        
+        </div>
+        <!-- =======Rental Information ======= -->
+        <div class=" col-md-12">
+          <div class="main-header row">
+            <div class="col-md-6">
+              <h4>Rental Information</h4>
+              <hr>
+            </div>
+          </div>
+       
         </div>
        
 
-        <form [formGroup]="rentalForm" (submit)="rentalForm.valid && onRentalSubmit()">
-        <div class="row ">
+        <div class="col-md-6">
          
-          <div class=" col-md-12">
-            <div class="main-header row">
-              <div class="col-md-6">
-                <h4>Land Lord Information</h4>
-              </div>
-              <div class="col-md-6">
-                <h4> Tenant Information</h4>
-          
-              </div>
+            <div class="row">
+
             </div>
-         
-          </div>
-          
-         
-          <!-- ======= Land Lord Information ======= -->
-          <div class="col-md-6">
-           
-              <div class="row">
-
-              </div>
-              <div class="row">
-                <div class="form-group col">
-                  <label for="">First Name</label>
-                  <input type="text" class="form-control" [class.is-invalid]="lFirstName.invalid && lFirstName.touched" formControlName="lFirstName">
-                </div>
-                <div class="form-group col">
-                  <label for="">Last Name</label>
-                  <input type="text" class="form-control" [class.is-invalid]="lLastName.invalid && lLastName.touched" formControlName="lLastName">
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="">Address</label>
-                <input type="text" class="form-control" [class.is-invalid]="address.invalid && address.touched" formControlName="address">
-              </div>
-              <div class="form-group">
-                <label for="">Phone</label>
-                <input type="text" class="form-control" [class.is-invalid]="lPhone.invalid && lPhone.touched" formControlName="lPhone">
-              </div>
-              <div class="form-group">
-                <label for="">Email</label>
-                <input type="email" class="form-control" [class.is-invalid]="lemail.invalid && lemail.touched" formControlName="lemail">
-              </div>
-            
-          </div>
-          <!-- ======= Tenat Information ======= -->
-          <div class="col-md-6">
-            
-
-              <div class="row">
-                <div class="form-group col">
-                  <label for="">First Name <span><i class="fa fa-asterisk "></i></span></label>
-                  <input type="text" class="form-control" [class.is-invalid]="tFirstName.invalid && tFirstName.touched" formControlName="tFirstName">
-                </div>
-                <div class="form-group col">
-                  <label for="">Last Name</label>
-                  <input type="text" class="form-control" [class.is-invalid]="tLastName.invalid && tLastName.touched" formControlName="tLastName">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="">Phone</label>
-                <input type="text" class="form-control" [class.is-invalid]="tPhone.invalid && tPhone.touched" formControlName="tPhone">
-              </div>
-              <div class="form-group">
-                <label for="">Email</label>
-                <input type="email" class="form-control" [class.is-invalid]="temail.invalid && temail.touched" formControlName="temail">
-              </div>
-            
-              <div class="form-group">
-                <label for="">Number Of Occupants</label>
-                <input type="number" class="form-control"  formControlName="occupants">
-              </div>
-          
-          </div>
-          <!-- =======Rental Information ======= -->
-          <div class=" col-md-12">
-            <div class="main-header row">
-              <div class="col-md-6">
-                <h4>Rental Information</h4>
-                <hr>
-              </div>
-            </div>
-         
-          </div>
-         
-
-          <div class="col-md-6">
-           
-              <div class="row">
-
-              </div>
-              <div class="form-group">
-                <label for="">House Rental Address</label>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <div class="form-group ">
-                    <label>State</label>
-                    <input type="text" formControlName="state" class="form-control"  >
-                  </div>
-                  <div class="form-group">
-                    <label for="">Country</label>
-                    <select class="selectpicker countrypicker form-control"  formControlName="country" [class.is-invalid]="country.invalid && country.touched" data-live-search="true"></select>
-                  </div>
-                </div>
-
-                <div class="col">
-                  <div class="form-group">
-                    <label>City</label>
-                    <input type="text" class="form-control" [class.is-invalid]="city.invalid && city.touched" formControlName="city">
-                  </div>
-                  <div class="form-group">
-                    <label>Postal Code</label>
-                    <input type="text" formControlName="postal" class="form-control"  >
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="form-group">
-                    <label>Start Date of Agreement</label>
-                    <input type="date" class="form-control" [class.is-invalid]="startDate.invalid && startDate.touched" formControlName="startDate">
-                  </div>
-                  <div class="form-group">
-                    <label>End Date of Agreement
-                    </label>
-                    <input type="date" formControlName="endDate" class="form-control" [class.is-invalid]="endDate.invalid && endDate.touched" >
-                  </div>
-                  <div class="form-group">
-                    <label for="">Pay Period</label>
-                    <select class="custom-select">
-
-                      <option value="">Every 15th of the month</option>
-                      <option value="">Every End of the month</option>
-
-                    </select>
-                  </div>
-                </div>
-              </div>
-          </div>
-
-
-          <div class="col-md-6">
-           
-              <div class="row">
-
-              </div>
-              <div class="form-group">
-                <label for="">Rent Amount per Month</label>
-                <input type="number" class="form-control" [class.is-invalid]="rentAmount.invalid && rentAmount.touched" formControlName="rentAmount">
-              </div>
-              <div class="form-group">
-                <label for="">Security Deposit</label>
-                <input type="number" class="form-control"  formControlName="securityDeposit">
-              </div>
-              <div class="form-group">
-                <label for="">Late Charges</label>
-                <input type="number" class="form-control" [class.is-invalid]="lateCharge.invalid && lateCharge.touched" formControlName="lateCharge">
-              </div>
-              <div class="form-group">
-                <label for="">Payment Method</label>
-                <select class="custom-select">
-                  <option value="default">Choose payment method</option>
-                  <option value="">Cash</option>
-                  <option value="">Check</option>
-                  <option value="">Paypal</option>
-                  <option value="">CBE Birr</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="">Collector</label>
-                <input type="text" class="form-control" formControlName="collector">
-              </div>
-          </div>
-          <div class=" col-md-12">
-            <div class="main-header row">
-              <div class="col-md-6">
-                <h4>TERMS AND CONDITIONS</h4>
-               
-              </div>
-            </div>
-         
-          </div>
-         
-          <div class="col-md-12">
-          
             <div class="form-group">
-
-              <textarea class="form-control" [class.is-invalid]="terms.invalid && terms.touched" formControlName="terms" name="" id="" cols="30" rows="10"
-                placeholder="Insaert your terms and conditions"></textarea>
+              <label for="">House Rental Address</label>
             </div>
-            <div class="signiture">
-              <div class="form-group">
-                <label for="">Landlord Signature</label>
-                <textarea class="form-control"  formControlName="lSignature" name="" id="" cols="30" rows="10"></textarea>
-                <a href="" class="clear">Clear</a>
+            <div class="row">
+              <div class="col">
+                <div class="form-group ">
+                  <label>State</label>
+                  <input type="text" formControlName="state" class="form-control"  >
+                </div>
+                <div class="form-group">
+                  <label for="">Country</label>
+                  <select class="selectpicker countrypicker form-control"  formControlName="country" [class.is-invalid]="country.invalid && country.touched" data-live-search="true"></select>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="">Tenant Signature</label>
-                <textarea class="form-control" formControlName="tSignature" name="" id="" cols="30" rows="10"></textarea>
-                <a href="" class="clear">Clear</a>
+
+              <div class="col">
+                <div class="form-group">
+                  <label>City</label>
+                  <input type="text" class="form-control" [class.is-invalid]="city.invalid && city.touched" formControlName="city">
+                </div>
+                <div class="form-group">
+                  <label>Postal Code</label>
+                  <input type="text" formControlName="postal" class="form-control"  >
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label>Start Date of Agreement</label>
+                  <input type="date" class="form-control" [class.is-invalid]="startDate.invalid && startDate.touched" formControlName="startDate">
+                </div>
+                <div class="form-group">
+                  <label>End Date of Agreement
+                  </label>
+                  <input type="date" formControlName="endDate" class="form-control" [class.is-invalid]="endDate.invalid && endDate.touched" >
+                </div>
+                <div class="form-group">
+                  <label for="">Pay Period</label>
+                  <select class="custom-select">
+
+                    <option value="">Every 15th of the month</option>
+                    <option value="">Every End of the month</option>
+
+                  </select>
+                </div>
               </div>
             </div>
+        </div>
 
-          </div>
-          
+
+        <div class="col-md-6">
          
+            <div class="row">
+
+            </div>
+            <div class="form-group">
+              <label for="">Rent Amount per Month</label>
+              <input type="number" class="form-control" [class.is-invalid]="rentAmount.invalid && rentAmount.touched" formControlName="rentAmount">
+            </div>
+            <div class="form-group">
+              <label for="">Security Deposit</label>
+              <input type="number" class="form-control"  formControlName="securityDeposit">
+            </div>
+            <div class="form-group">
+              <label for="">Late Charges</label>
+              <input type="number" class="form-control" [class.is-invalid]="lateCharge.invalid && lateCharge.touched" formControlName="lateCharge">
+            </div>
+            <div class="form-group">
+              <label for="">Payment Method</label>
+              <select class="custom-select">
+                <option value="default">Choose payment method</option>
+                <option value="">Cash</option>
+                <option value="">Check</option>
+                <option value="">Paypal</option>
+                <option value="">CBE Birr</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="">Collector</label>
+              <input type="text" class="form-control" formControlName="collector">
+            </div>
         </div>
-        <div class="opt">
-          <button class="btn" type="submit">Submit</button>
-          <button class="btn"><i class="fa fa-print"></i> Print</button>
+        <div class=" col-md-12">
+          <div class="main-header row">
+            <div class="col-md-6">
+              <h4>TERMS AND CONDITIONS</h4>
+             
+            </div>
+          </div>
+       
         </div>
-      </form>
+       
+        <div class="col-md-12">
+        
+          <div class="form-group">
+
+            <textarea class="form-control" [class.is-invalid]="terms.invalid && terms.touched" formControlName="terms" name="" id="" cols="30" rows="10"
+              placeholder="Insaert your terms and conditions"></textarea>
+          </div>
+          <div class="signiture">
+            <div class="form-group">
+              <label for="">Landlord Signature</label>
+              <textarea class="form-control"  formControlName="lSignature" name="" id="" cols="30" rows="10"></textarea>
+              <a href="" class="clear">Clear</a>
+            </div>
+            <div class="form-group">
+              <label for="">Tenant Signature</label>
+              <textarea class="form-control" formControlName="tSignature" name="" id="" cols="30" rows="10"></textarea>
+              <a href="" class="clear">Clear</a>
+            </div>
+          </div>
+
+        </div>
+        
+       
       </div>
-    </section>
-  </div>
+      <div class="opt">
+        <button class="btn" type="submit">Submit</button>
+        <button class="btn"><i class="fa fa-print"></i> Print</button>
+      </div>
+    </form>
+    </div>
+  </section>
+</div>
 

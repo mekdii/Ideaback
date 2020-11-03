@@ -12,7 +12,7 @@ tFirstName:String;
 tLastName:String;
 temail:String;
 tPhone:Number;
-tOcuupants:Number;
+occupants:Number;
 
 //Rental Information//
 

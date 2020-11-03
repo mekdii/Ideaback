@@ -13,6 +13,8 @@ export class FormsComponent implements OnInit {
   rental: Rental = new Rental();
  
   rentalForm : FormGroup;
+  
+
 
   constructor( private fb: FormBuilder, private fs: FormService,  private router: Router,) { }
 
@@ -21,26 +23,31 @@ export class FormsComponent implements OnInit {
       lFirstName: ['', [Validators.required, Validators.minLength(3)]],
       lLastName: ['', [Validators.required, Validators.minLength(3)]],
       lemail: ['', [Validators.required, Validators.email]],
-      lPhone: ['', [Validators.required]],
+      lPhone: [null, [Validators.required]],
       address:['', [Validators.required]],
       tFirstName: ['', [Validators.required, Validators.minLength(3)]],
       tLastName: ['', [Validators.required, Validators.minLength(3)]],
       temail: ['', [Validators.required, Validators.email]],
-      tPhone: ['', [Validators.required]],
-    occupants: [''],
-      city: ['', [Validators.required]],
-      state: [''],
-      startDate: ['', [Validators.required]],
-      endDate: ['', [Validators.required]],
+      tPhone: [null, [Validators.required]],
+      occupants: [null, [Validators.required]],
      
-      payPeriod: ['', [Validators.required]],
-      rentAmount: ['', [Validators.required]],
-      lateCharge: ['', [Validators.required]],
-      paymentMethod: ['', [Validators.required]],
-      terms:['', [Validators.required, Validators.minLength(500)]],
     })
   }
   
+  
+    onRentalSubmit(){
+      this.fs.submitForm(this.rentalForm.value)
+      .subscribe(
+        response =>
+        { if (response.success) {
+          console.log('Success!', response),
+          this.router.navigate(['../../../contracts']);
+        } else {
+          console.log('Failed');
+        } 
+      }
+      );
+    }
     get lFirstName(){
       return this.rentalForm.get('lFirstName');
     }
@@ -71,14 +78,15 @@ export class FormsComponent implements OnInit {
     get occupants(){
       return this.rentalForm.get('occupants');
     }
-    get state(){
-      return this.rentalForm.get('state');
-    }
+  
     get country(){
       return this.rentalForm.get('country');
     }
     get city(){
       return this.rentalForm.get('city');
+    }
+    get state(){
+      return this.rentalForm.get('state');
     }
     get startDate(){
       return this.rentalForm.get('startDate');
@@ -99,23 +107,11 @@ export class FormsComponent implements OnInit {
     get lateCharge(){
       return this.rentalForm.get('lateCharge');
     }
-    
+    get securityDeposit(){
+      return this.rentalForm.get('securityDeposit');
+    }
     get terms(){
       return this.rentalForm.get('terms');
-    }
-
-    onRentalSubmit(){
-      this.fs.submitForm(this.rentalForm.value)
-      .subscribe(
-        response =>
-        { if (response.success) {
-          console.log('Success!', response),
-          this.router.navigate(['/Login']);
-        } else {
-          console.log('Failed');
-        } 
-      }
-      );
     }
 
   }
