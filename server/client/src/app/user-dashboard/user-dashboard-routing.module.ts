@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { RouteguardService } from '../routeguard.service';
 
 import { ContractsComponent } from './contracts/contracts.component';
+import { DetailContractComponent } from './contracts/detail-contract/detail-contract.component';
 import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
 import { EventsComponent } from './events/events.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -21,6 +22,11 @@ const UserDashboardRoutes: Routes = [{
       path: '',
       children: [
         { path: 'contracts', component: ContractsComponent },
+        {
+          path: 'contracts/details/:id',
+          component: DetailContractComponent,
+          data: { title: 'Contract Details' }
+        },
         { path: 'templates', component: TemplatesComponent},
         {path: 'templates/rental', component: RentalComponent},
         { path: 'templates/rental/:id', component: FormsComponent},

@@ -9,20 +9,59 @@ import { Rental } from '../../templates/forms/rental';
   styleUrls: ['./detail-contract.component.css']
 })
 export class DetailContractComponent implements OnInit {
-  contracts: Rental[] =[];
+  contracts: Rental = {
+    id: ' ',
+    lFirstName:' ',
+    lLastName:' ',
+    lemail:' ',
+    lPhone:null,
+    date:null,
+
+    //tenat information
+    tFirstName:' ',
+    tLastName:' ',
+    temail:' ',
+    tPhone: null,
+    tOcuupants:null,
+    
+    //Rental Information//
+    
+    //House Rental Address
+    country:' ',
+    state:' ',
+    city:' ',
+    postal:null,
+    //Dates
+    startDate:null,
+    endDate:null,
+    payPeriod :' ',
+    
+    //financial
+    rentAmount:null,
+    securityDeposit:null,
+    lateCharge:null,
+    paymentMethod:' ',
+    collector:' ',
+    terms:' ',
+    lSignature:' ',
+    tSignature:' ',
+  };
   isLoadingResults = true;
   constructor(private route: ActivatedRoute, private fs: FormService, private router: Router) { }
 
   ngOnInit(): void {
-    this.getContractDetails(this.route.snapshot.params.id);
+    this.getContractDetails();
   }
-  getContractDetails(id: any){
+
+  getContractDetails(){
+    const id = +this.route.snapshot.paramMap.get('id');
     this.fs.getContract(id)
     .subscribe((data: any) => {
       this.contracts = data;
-      this.contracts.id = data._id;
+      this.contracts.id = data.id;
       console.log(this.contracts);
       this.isLoadingResults = false;
     });
   }
+
 }

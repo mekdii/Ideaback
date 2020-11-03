@@ -1,6 +1,7 @@
 export class Rental{
-  
+  id: String;
 //land lord Information String;
+lFirstName:String;
 lLastName:String;
 lemail:String;
 lPhone:Number;
