@@ -3,7 +3,7 @@
   <section id="contact" class="contact container-100 " style="background: rgba(34, 28, 105, 0.603);">
     <div class="container wrapb mx-auto" data-aos="fade-up">
       <div class="section-title">
-        <p class="text-center"><a href="index.html"><img src="assets/img/create.png" alt="" srcset="" width="70px"></a></p>
+        <p class="text-center"><a routerLink="../../rental"><img src="../../../../assets/img/logo.png" alt="" srcset="" width="70px"></a></p>
       <h3 class="text-center heading" style="font-size: 24px;">Basic rental agreement</h3>
       </div>
      
@@ -11,23 +11,12 @@
       <form [formGroup]="rentalForm" (submit)="rentalForm.valid && onRentalSubmit()">
       <div class="row ">
        
-        <div class=" col-md-12">
-          <div class="main-header row">
-            <div class="col-md-6">
-              <h4>Land Lord Information</h4>
-            </div>
-            <div class="col-md-6">
-              <h4> Tenant Information</h4>
-        
-            </div>
-          </div>
        
-        </div>
         
        
         <!-- ======= Land Lord Information ======= -->
         <div class="col-md-6">
-         
+          <h4 class="main-header">Land Lord Information</h4>
             <div class="row">
 
             </div>
@@ -56,13 +45,14 @@
             </div>
           
         </div>
+       
         <!-- ======= Tenat Information ======= -->
         <div class="col-md-6">
-          
+          <h4 class="main-header">Tenant Information</h4>
 
             <div class="row">
               <div class="form-group col">
-                <label for="">First Name <span><i class="fa fa-asterisk "></i></span></label>
+                <label for="">First Name</label>
                 <input type="text" class="form-control" [class.is-invalid]="tFirstName.invalid && tFirstName.touched" formControlName="tFirstName">
               </div>
               <div class="form-group col">
@@ -113,7 +103,7 @@
                 </div>
                 <div class="form-group">
                   <label for="">Country</label>
-                  <select class="selectpicker countrypicker form-control"  formControlName="country" [class.is-invalid]="country.invalid && country.touched" data-live-search="true"></select>
+                  <input type="text" class="form-control"  formControlName="country" [class.is-invalid]="country.invalid && country.touched" >
                 </div>
               </div>
 
@@ -186,8 +176,7 @@
         <div class=" col-md-12">
           <div class="main-header row">
             <div class="col-md-6">
-              <h4>TERMS AND CONDITIONS</h4>
-             
+              <h4>Terms and Conditions</h4>
             </div>
           </div>
        
@@ -198,7 +187,7 @@
           <div class="form-group">
 
             <textarea class="form-control" [class.is-invalid]="terms.invalid && terms.touched" formControlName="terms" name="" id="" cols="30" rows="10"
-              placeholder="Insaert your terms and conditions"></textarea>
+              placeholder="Insert your terms and conditions"></textarea>
           </div>
           <div class="signiture">
             <div class="form-group">

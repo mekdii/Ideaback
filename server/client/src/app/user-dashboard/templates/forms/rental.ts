@@ -23,7 +23,7 @@ city:String;
 postal:Number;
 //Dates
 startDate:Date;
-endDate:Number;
+endDate:Date;
 payPeriod :String;
 
 //financial

@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: 'Reset', component: ResetComponent},
    {path: 'Contact', component: ContactComponent},
    {
-    path: 'Dashboard',
+    path: 'dashboard',
     loadChildren: () => import('./user-dashboard/user-dashboard.module').then(m => m.UserDashboardModule)
   },
   {path: '404', component: NotfoundComponent},

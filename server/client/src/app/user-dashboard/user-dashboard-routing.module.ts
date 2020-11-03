@@ -21,7 +21,7 @@ const UserDashboardRoutes: Routes = [{
     {
       path: '',
       children: [
-        { path: 'contracts', component: ContractsComponent },
+        { path: 'contract', component: ContractsComponent },
         {
           path: 'contracts/details/:id',
           component: DetailContractComponent,
@@ -34,6 +34,7 @@ const UserDashboardRoutes: Routes = [{
         { path: 'profile', component: ProfileComponent },
         { path: 'Dashboard', component: UserDashboardComponent },
         { path: '', component: DashboardHomeComponent }
+        
       ]
     }
   ]}
