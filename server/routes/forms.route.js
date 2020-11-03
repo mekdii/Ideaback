@@ -74,6 +74,33 @@ router.get('/rental/:id', passport.authenticate('jwt', { session: false}), funct
     }
   });
 
+  //Add a router to PUT a contract data by ID.
+  router.put('/rental/:id', passport.authenticate('jwt', { session: false}), function(req, res, next) {
+    var token = getToken(req.headers);
+    if (token) {
+      Rental.findByIdAndUpdate(req.params.id, req.body, function (err, rental) {
+        if (err) return next(err);
+        res.json(rental);
+      });
+    } else {
+      return res.status(403).send({success: false, msg: 'Unauthorized.'});
+    }
+  });
+
+  //Add a router to DELETE a contract data by ID.
+  router.delete('/rental/:id', passport.authenticate('jwt', { session: false}), function(req, res, next) {
+    var token = getToken(req.headers);
+    if (token) {
+      Rental.findByIdAndRemove(req.params.id, req.body, function (err, rental) {
+        if (err) return next(err);
+        res.json(rental);
+      });
+    } else {
+      return res.status(403).send({success: false, msg: 'Unauthorized.'});
+    }
+  });
+
+
 //Add a function to get and extract the token from the request headers.
   getToken = function (headers) {
     if (headers && headers.authorization) {
