@@ -35,10 +35,6 @@ app.use('/users', userRoute);
 //set up public resources folder
 app.use(express.static(__dirname + '/public'));
 
-//set up our route
-app.get('/', (req, res)=>{
-    res.sendFile(path.join(__dirname, 'public/index.html'))
-})
 
 
 
