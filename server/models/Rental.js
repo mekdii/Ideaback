@@ -37,10 +37,9 @@ tPhone:{
   
 },
 
-tOcuupants:{
+occupants:{
     type: Number
 },
-
 //Rental Information//
 
 //House Rental Address

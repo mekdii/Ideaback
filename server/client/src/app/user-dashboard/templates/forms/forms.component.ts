@@ -11,14 +11,31 @@ import { Rental } from './rental'
 })
 export class FormsComponent implements OnInit {
   rental: Rental = new Rental();
-
+    pPeriod = ['Every 15th of the month', 'Every End of the month'];
+    pMethod =['Cash', 'Check','PayPal','CBE Birr']
   rentalForm: FormGroup;
+  periodHasError = true;
+  methodHasError = true;
   points = [];
   signatureImage;
   signatureImages;
-
+ 
   constructor(private fb: FormBuilder, private fs: FormService, private router: Router,) { }
 
+  validatePeriod(value) {
+    if (value === 'default') {
+      this.periodHasError = true;
+    } else {
+      this.periodHasError = false;
+    }
+  }
+  validateMethod(value) {
+    if (value === 'default') {
+      this.methodHasError = true;
+    } else {
+      this.methodHasError = false;
+    }
+  }
   ngOnInit(): void {
     this.rentalForm = this.fb.group({
       lFirstName: ['', [Validators.required, Validators.minLength(3)]],
@@ -35,35 +52,24 @@ export class FormsComponent implements OnInit {
        state:['', [Validators.required]],
         city:['', [Validators.required]],
         postal:['', [Validators.required]],
-      startDate:['', [Validators.required]],
-      endDate:['', [Validators.required]],
-      payPeriod :['', [Validators.required]],
+        
+      startDate:[''],
+      endDate:[''],
+      payPeriod :[''],
       rentAmount:['', [Validators.required]],
 securityDeposit:['', [Validators.required]],
 lateCharge:['', [Validators.required]],
-paymentMethod:['', [Validators.required]],
 collector:['', [Validators.required]],
-terms:['', [Validators.required]],
+paymentMethod:['', [Validators.required]],
+terms:['', [Validators.required]],/*
 lSignature:['', [Validators.required]],
 tSignature:['', [Validators.required]],
-
+*/
     })
   }
 
 
-  onRentalSubmit() {
-    this.fs.submitForm(this.rentalForm.value)
-      .subscribe(
-        response => {
-          if (response.success) {
-            console.log('Success!', response),
-              this.router.navigate(['/contracts']);
-          } else {
-            console.log('Failed');
-          }
-        }
-      );
-  }
+ 
   get lFirstName() {
     return this.rentalForm.get('lFirstName');
   }
@@ -104,6 +110,10 @@ tSignature:['', [Validators.required]],
   get state() {
     return this.rentalForm.get('state');
   }
+  get postal() {
+    return this.rentalForm.get('postal');
+  }
+  
   get startDate() {
     return this.rentalForm.get('startDate');
   }
@@ -130,6 +140,7 @@ tSignature:['', [Validators.required]],
     return this.rentalForm.get('terms');
   }
 
+
   showTImage(data) {
     this.signatureImages = data;
   }
@@ -137,6 +148,45 @@ tSignature:['', [Validators.required]],
   showImage(data) {
     this.signatureImage = data;
   }
- 
-}
+  loadAPIData() {
+    this.rentalForm.patchValue({
+      lFirstName: 'Bruce',
+      lLastName: 'Willis',
+      lemail: 'will@gmail.com',
+      lPhone: 1234567,
+      address:'aa',
+      tFirstName: 'Alex',
+      tLastName: 'Rover',
+      temail: 'alex@mail.com',
+       occupants: 3,
+       country:'Ethiopia',
+       state:'Addis Ababa',
+       city:'Addis Ababa',
+       postal: 123,
+       rentAmount:3000,
+securityDeposit:2000,
+lateCharge:300,
 
+collector:'sis',
+terms:'fdsdfghbjnkm,.,lkjhygtfrde bdxsdfghjmk, vcsdfgtyuio'
+     
+    });
+  }
+  onRentalSubmit() {
+   
+    this.fs.submitForm(this.rentalForm.value)
+      .subscribe(
+        response => {
+          if (response.success) {
+            console.log('Success!', response),
+            
+              this.router.navigate(['/contract']);
+
+          } else {
+            console.log('Failed');
+          }
+        }
+      );
+  }
+
+}

@@ -19,6 +19,7 @@ router.post('/rental', (req, res, next) => {
     tLastName: req.body.tLastName,
     temail: req.body.temail,
     tPhone: req.body.tPhone,
+    occupants: req.body.occupants,
     country: req.body.country,
     state: req.body.state,
     city: req.body.city,

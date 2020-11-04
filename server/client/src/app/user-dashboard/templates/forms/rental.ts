@@ -35,4 +35,5 @@ collector:String;
 terms:String;
 lSignature:String;
 tSignature:String;
+
 }
