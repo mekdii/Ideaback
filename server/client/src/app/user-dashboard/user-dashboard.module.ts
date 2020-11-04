@@ -19,7 +19,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
 import { RentalComponent } from './templates/rental/rental.component';
 import { FormsComponent } from './templates/forms/forms.component';
-
+import {SignaturePadModule}from '@ng-plus/signature-pad'
 
 
 @NgModule({
@@ -29,6 +29,7 @@ import { FormsComponent } from './templates/forms/forms.component';
     UserDashboardRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    SignaturePadModule
   ]
 })
 export class UserDashboardModule { }

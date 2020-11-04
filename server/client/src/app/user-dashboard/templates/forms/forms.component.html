@@ -192,14 +192,17 @@
           <div class="signiture">
             <div class="form-group">
               <label for="">Landlord Signature</label>
-              <textarea class="form-control"  formControlName="lSignature" name="" id="" cols="30" rows="10"></textarea>
-              <a href="" class="clear">Clear</a>
+              <ng-signature-pad  doneButtonText="showImage" format="base64" (done)="showImage($event)" ></ng-signature-pad>
+          
             </div>
+            
+            <img [src]="signatureImage" *ngIf="signatureImage" formControlName="tSignature" alt="">
             <div class="form-group">
               <label for="">Tenant Signature</label>
-              <textarea class="form-control" formControlName="tSignature" name="" id="" cols="30" rows="10"></textarea>
-              <a href="" class="clear">Clear</a>
+              <ng-signature-pad id="simple_sketch" doneButtonText="showImage" format="base64" (done)="showTImage($event)" ></ng-signature-pad>
+              
             </div>
+            <img [src]="signatureImages" *ngIf="signatureImages" formControlName="tSignature" alt="">
           </div>
 
         </div>

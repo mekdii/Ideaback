@@ -13,8 +13,9 @@ export class FormsComponent implements OnInit {
   rental: Rental = new Rental();
 
   rentalForm: FormGroup;
-
-
+  points = [];
+  signatureImage;
+  signatureImages;
 
   constructor(private fb: FormBuilder, private fs: FormService, private router: Router,) { }
 
@@ -129,5 +130,13 @@ tSignature:['', [Validators.required]],
     return this.rentalForm.get('terms');
   }
 
+  showTImage(data) {
+    this.signatureImages = data;
+  }
+
+  showImage(data) {
+    this.signatureImage = data;
+  }
+ 
 }
 

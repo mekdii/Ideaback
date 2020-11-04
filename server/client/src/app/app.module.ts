@@ -21,7 +21,8 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { FeaturesComponent } from './features/features.component';
 import { ResetComponent } from './reset/reset.component';
-import {UserDashboardModule}from './user-dashboard/user-dashboard.module'
+import {UserDashboardModule}from './user-dashboard/user-dashboard.module';
+import {SignaturePadModule}from '@ng-plus/signature-pad'
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {UserDashboardModule}from './user-dashboard/user-dashboard.module'
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    UserDashboardModule
+    UserDashboardModule,
+    SignaturePadModule
 
   ],
   providers: [ConfigService,
