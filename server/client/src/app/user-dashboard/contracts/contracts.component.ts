@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormService } from '../templates/forms/form.service';
 import {Rental} from '../templates/forms/rental'
 @Component({
@@ -8,7 +9,8 @@ import {Rental} from '../templates/forms/rental'
 })
 export class ContractsComponent implements OnInit {
 data: Rental[] = [];
-  constructor(private fs: FormService) { }
+isLoadingResults = true;
+  constructor(private fs: FormService, private route: Router) { }
 
   ngOnInit(): void {
     this.fs.getForm()
@@ -22,6 +24,17 @@ data: Rental[] = [];
       });
   }
 
-  
+  deleteList(id: any) {
+    this.isLoadingResults = true;
+    this.fs.deleteContract(id)
+      .subscribe(res => {
+          this.isLoadingResults = false;
+          alert('You have deleted')
+        }, (err) => {
+          console.log(err);
+          this.isLoadingResults = false;
+        }
+      );
+  }
 
 }

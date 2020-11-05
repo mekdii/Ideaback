@@ -50,5 +50,11 @@ export class FormService {
       catchError(this.handleError<any>(`getContract id=${id}`))
     );
   }
-
+deleteContract(id: any): Observable<any>{
+  const url = `${this.apiUrl}/rental/${id}`;
+    return this.http.delete<any>(url).pipe(
+      tap(_ => console.log(`deleted contract id=${id}`)),
+      catchError(this.handleError<any>('deleteContract'))
+    );
+}
 }
