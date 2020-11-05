@@ -45,3 +45,7 @@
 .signature-pad[_ngcontent-uke-c45]
    canvas[_ngcontent-uke-c45]{background:#f2f2f2}.signature-pad[_ngcontent-uke-c45]  
  .btn[_ngcontent-uke-c45]{margin-right:.25em}
+.address p{
+    padding: 0;
+    margin: 0;
+}

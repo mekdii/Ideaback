@@ -1,1 +1,187 @@
-<p>detail-contract works!</p>
+
+<div id="content">
+    <!-- ======= Form Section ======= -->
+    <section id="contact" class="contact container-100 " style="background: rgba(34, 28, 105, 0.603);">
+      <div class="container wrapb mx-auto" data-aos="fade-up">
+        <div class="section-title">
+       
+          <p class="text-center"><a href="index.html"  style= "margin-left: -30px;" ><img src="../../../../assets/img/bra.png" alt="" srcset="" width="100%" ></a></p>
+        </div>
+       
+
+        <form *ngIf="contracts">
+        <div class="row ">
+         
+          <div class=" col-md-12">
+            <div class="main-header row">
+              <div class="col-md-6">
+                <h4>Land Lord Information</h4>
+              </div>
+              <div class="col-md-6">
+                <h4> Tenant Information</h4>
+          
+              </div>
+            </div>
+         
+          </div>
+          
+         
+          <!-- ======= Land Lord Information ======= -->
+          <div class="col-md-6">
+           
+              <div class="row">
+
+              </div>
+              <div class="row">
+                <div class="form-group col">
+                  <label for="">Name</label>
+                   <p>{{contracts.lFirstName}} {{contracts.lLastName}}</p>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="">Address</label>
+               <p>Addis Ababa</p>
+              </div>
+              <div class="form-group">
+                <label for="">Phone</label>
+               <p>+251966337659</p>
+              </div>
+              <div class="form-group">
+                <label for="">Email</label>
+                <p>sisimandela19@gmail.com</p>
+              </div>
+            
+          </div>
+          <!-- ======= Tenat Information ======= -->
+          <div class="col-md-6">
+            
+
+              <div class="row">
+                <div class="form-group col">
+                  <label for="">Name</label>
+                 <p></p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="">Phone</label>
+               <p></p>
+              </div>
+              <div class="form-group">
+                <label for="">Email</label>
+                <p></p>
+              </div>
+              <div class="form-group">
+                <label for="">Phone</label>
+               <p></p>
+              </div>
+              <div class="form-group">
+                <label for="">Number Of Occupants</label>
+                <p></p>
+              </div>
+          
+          </div>
+          <!-- =======Rental Information ======= -->
+          <div class=" col-md-12">
+            <div class="main-header row">
+              <div class="col-md-6">
+                <h4>Rental Information</h4>
+                <hr>
+              </div>
+            </div>
+         
+          </div>
+         
+
+          <div class="col-md-6">
+           
+              <div class="form-group">
+                <label for="">House Rental Address</label>
+              
+          
+                <div class="address">
+                  <p>1234</p>
+                  <p>Bole</p><p>Addis Ababa</p>
+                  <p>Ethiopia</p>
+                </div></div>
+                <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label>Start Date of Agreement</label>
+                    <p>12335</p>
+                  </div>
+                  <div class="form-group">
+                    <label>End Date of Agreement
+                    </label>
+                   <p>452356</p>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Pay Period</label>
+                     <p>nbvcx</p>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+
+          <div class="col-md-6">
+           
+              <div class="row">
+
+              </div>
+              <div class="form-group">
+                <label for="">Rent Amount</label>
+               <p>$3000</p>
+              </div>
+              <div class="form-group">
+                <label for="">Security Deposit</label>
+                <p>$2000</p>
+              </div>
+              <div class="form-group">
+                <label for="">Late Charges</label>
+                <p>$300</p>
+              </div>
+              <div class="form-group">
+                <label for="">Payment Method</label>
+               <p>Cash</p>
+              </div>
+              <div class="form-group">
+                <label for="">Collector</label>
+               <p>Sisay</p>
+              </div>
+          </div>
+          <div class=" col-md-12">
+            <div class="main-header row">
+              <div class="col-md-6">
+                <h4>TERMS AND CONDITIONS</h4>
+              </div>
+            </div>
+         
+          </div>
+         
+          <div class="col-md-12">
+          <p>This is an aggreement between</p>
+            <div class="signiture">
+              <div class="form-group">
+                <label for="">Landlord Signature</label>
+                <img src="" alt="">
+              </div>
+              <div class="form-group">
+                <label for="">Tenant Signature</label>
+               <img src="" alt="">
+              </div>
+            </div>
+
+          </div>
+          
+         
+        </div>
+      
+        <div class="opt">
+          <button class="btn" type="submit">Submit</button>
+          <button class="btn"><i class="fa fa-print"></i> Print</button>
+        </div>
+      </form>
+      </div>
+    </section>
+  </div>

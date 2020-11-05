@@ -10,7 +10,7 @@ import { Rental } from '../../templates/forms/rental';
 })
 export class DetailContractComponent implements OnInit {
   contracts: Rental = {
-    id: ' ',
+    id: '',
     lFirstName:' ',
     lLastName:' ',
     lemail:' ',
@@ -50,15 +50,14 @@ export class DetailContractComponent implements OnInit {
   constructor(private route: ActivatedRoute, private fs: FormService, private router: Router) { }
 
   ngOnInit(): void {
-    this.getContractDetails();
+    this.getContractDetails(this.route.snapshot.params.id);
   }
 
-  getContractDetails(){
-    const id = +this.route.snapshot.paramMap.get('id');
+  getContractDetails(id: any){
     this.fs.getContract(id)
     .subscribe((data: any) => {
       this.contracts = data;
-      this.contracts.id = data.id;
+      this.contracts.id = data._id;
       console.log(this.contracts);
       this.isLoadingResults = false;
     });

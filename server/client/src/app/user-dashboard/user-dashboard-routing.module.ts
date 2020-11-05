@@ -23,7 +23,7 @@ const UserDashboardRoutes: Routes = [{
       children: [
         { path: 'contract', component: ContractsComponent },
         {
-          path: 'contracts/details/:id',
+          path: 'contract/details/:id',
           component: DetailContractComponent,
           data: { title: 'Contract Details' }
         },
