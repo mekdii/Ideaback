@@ -3,8 +3,9 @@ const router = express.Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const config = require('../configuration/config');
+const nodemailer = require("nodemailer");
 const Rental = require('../models/Rental');
-
+const user = require('../models/Users')
 //Rental Handle
 router.post('/rental', (req, res, next) => {
   
@@ -84,8 +85,42 @@ router.delete('/rental/:id',  function (req, res, next) {
     });
  
 });
+/*
+//send email
+router.post("/rental/:id/sendmail", (req, res) => {
+  console.log("request came");
+  let rental = req.body;
+  sendMail(rental, info => {
+    console.log(`The mail has beed send 😃 and the id is ${info.messageId}`);
+    res.send(info);
+  });
+});
+async function sendMail(rental, callback) {
+  // create reusable transporter object using the default SMTP transport
+  let transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false, // true for 465, false for other ports
+    auth: {
+      user: user.email,
+      pass: user.password
+    }
+  });
 
+  let mailOptions = {
+    from: `"Fun Of Heuristic"<${rental.lemail}>`, // sender address
+    to: rental.temail, // list of receivers
+    subject: "Wellcome to Fun Of Heuristic 👻", // Subject line
+    html: `<h1>Hello ${rental.tFirstName} ${rental.tLastName}</h1><br>
+    <h4>Thanks for joining us</h4>`
+  };
 
+  // send mail with defined transport object
+  let info = await transporter.sendMail(mailOptions);
+
+  callback(info);
+}
+*/
 //Add a function to get and extract the token from the request headers.
 getToken = function (headers) {
   if (headers && headers.authorization) {
