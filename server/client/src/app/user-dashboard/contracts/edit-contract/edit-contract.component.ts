@@ -200,42 +200,7 @@ tSignature:['', [Validators.required]],
 
 }
 
- 
-/*
-  getContract(id: any) {
-    this.fs.getContract(id).subscribe((data: any) => {
-      this.id = data.id;
-      this.rentalForm.setValue({
-        date: data.date,
-        lFirstName: data.lFirstName,
-        lLastName: data.lLastName,
-        lemail: data.lemail,
-        lPhone: data.lPhone,
-        address: data.address,
-        tFirstName: data.tFirstName,
-        tLastName: data.tLastName,
-        temail: data.temail,
-        tPhone: data.tPhone,
-        occupants: data.occupants,
-        country: data.country,
-        state: data.state,
-        city: data.city,
-        postal: data.postal,
-        startDate: data.startDate,
-        endDate: data.endDate,
-        payPeriod: data.payPeriod,
-        rentAmount: data.rentAmount,
-        securityDeposit: data.securityDeposit,
-        lateCharge: data.lateCharge,
-        paymentMethod: data.paymentMethod,
-        collector: data.collector,
-        terms: data.terms,
-        lSignature: data.lSignature,
-        tSignature: data.tSignature
-      });
-    });
-  }
-*/
+
 
 
 
@@ -243,11 +208,9 @@ tSignature:['', [Validators.required]],
 
   
 editContract(): void {
-
   this.isLoadingResults = true;
     this.fs.updateContract(this.id, this.rentalForm.value)
       .subscribe((res: any) => {
-          const id = res._id;
           this.isLoadingResults = false;
           this.getBack()
         }, (err: any) => {

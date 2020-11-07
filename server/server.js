@@ -29,7 +29,9 @@ app.use(passport.session());
 require('./configuration/passport')(passport);
 
 // add middleware 
+
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', indexRoute);
 app.use('/users', userRoute);
 app.use('/forms', formsRoute);

@@ -1,5 +1,5 @@
 
-<div id="content">
+<div id="content" #content>
     <!-- ======= Form Section ======= -->
     <section id="contact" class="contact container-100 " style="background: rgba(34, 28, 105, 0.603);">
       <div class="container wrapb mx-auto" data-aos="fade-up">
@@ -9,7 +9,7 @@
         </div>
        
 
-        <form *ngIf="contracts">
+        <form *ngIf="contracts" id="comp" #comp >
         <div class="row ">
          
           <div class=" col-md-12">
@@ -171,11 +171,10 @@
 
           </div>
           
-         
         </div>
-      
+ 
         <div class="opt">
-          <button class="btn" type="submit">Submit</button>
+          <button class="btn" type="submit" (click)="downloadPdf()">Download Pdf</button>
           <button class="btn"><i class="fa fa-print"></i> Print</button>
         </div>
       </form>

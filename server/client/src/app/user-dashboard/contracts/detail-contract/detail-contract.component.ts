@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormService } from '../../forms/form.service';
 import { Rental } from '../../forms/rental';
-
+import * as  jsPDF from 'jspdf';
+import * as html2canvas from 'html2canvas';
 @Component({
   selector: 'app-detail-contract',
   templateUrl: './detail-contract.component.html',
   styleUrls: ['./detail-contract.component.css']
 })
 export class DetailContractComponent implements OnInit {
+   @ViewChild("comp")  comp: ElementRef;
   contracts: Rental = {
     id: '',
     lFirstName:' ',
@@ -52,6 +54,14 @@ export class DetailContractComponent implements OnInit {
   ngOnInit(): void {
     this.getContractDetails(this.route.snapshot.params.id);
   }
+  ngAfterViewInit() {
+    console.log(this.comp.nativeElement);
+    this.comp.nativeElement.click();
+    setTimeout(() => {
+        console.log(this.comp.nativeElement.id);
+        this.comp.nativeElement.click();
+      }, 50000);
+  }
 
   getContractDetails(id: any){
     this.fs.getContract(id)
@@ -62,5 +72,22 @@ export class DetailContractComponent implements OnInit {
       this.isLoadingResults = false;
     });
   }
+  downloadPdf(){
+    let comp = this.comp.nativeElement;
+    const doc = new jsPDF('p','pt', 'a4');
+   let specilElementHandlers = {
+     '#comp': function(element, renderer){
+          return true;
+     }
+   };
+ 
+  
+     doc.fromHTML(comp.innerHTML,15,15,{
+      'width': 200,
+      
+      'elementHandlers': specilElementHandlers
+    });
+    doc.save('contract.pdf')
 
+  }
 }
