@@ -84,6 +84,7 @@ export class DetailContractComponent implements OnInit {
   
      doc.fromHTML(comp.innerHTML,15,15,{
       'width': 200,
+      
       'elementHandlers': specilElementHandlers
     });
     doc.save('contract.pdf')

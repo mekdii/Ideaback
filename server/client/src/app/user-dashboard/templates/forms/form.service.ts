@@ -60,6 +60,7 @@ export class FormService {
     );
   }
 
+  
 deleteContract(id: any): Observable<any>{
   const url = `${this.apiUrl}/rental/${id}`;
     return this.http.delete<any>(url).pipe(
