@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormService } from '../../templates/forms/form.service';
-import { Rental } from '../../templates/forms/rental';
+import { FormService } from '../../forms/form.service';
+import { Rental } from '../../forms/rental';
 import { Location } from '@angular/common';
 @Component({
   selector: 'app-edit-contract',

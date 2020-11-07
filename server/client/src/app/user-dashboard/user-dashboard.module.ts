@@ -17,8 +17,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
-import { RentalComponent } from './templates/rental/rental.component';
-import { FormsComponent } from './templates/forms/forms.component';
+import { RentalComponent } from './rental/rental.component';
+import { FormsComponent } from './forms/forms.component';
 import {SignaturePadModule}from '@ng-plus/signature-pad'
 
 

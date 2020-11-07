@@ -8,8 +8,8 @@ import { EditContractComponent } from './contracts/edit-contract/edit-contract.c
 import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
 import { EventsComponent } from './events/events.component';
 import { ProfileComponent } from './profile/profile.component';
-import { FormsComponent } from './templates/forms/forms.component';
-import { RentalComponent } from './templates/rental/rental.component';
+import { FormsComponent } from './forms/forms.component';
+import { RentalComponent } from './rental/rental.component';
 import { TemplatesComponent } from './templates/templates.component';
 
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
@@ -34,8 +34,8 @@ const UserDashboardRoutes: Routes = [{
           data: { title: 'Edit Contract' }
         },
         { path: 'templates', component: TemplatesComponent},
-        {path: 'templates/rental', component: RentalComponent},
-        { path: 'templates/rental/:id', component: FormsComponent},
+        {path: 'rental', component: RentalComponent},
+        { path: 'rental/:id', component: FormsComponent},
         { path: 'events', component: EventsComponent },
         { path: 'profile', component: ProfileComponent },
         { path: 'Dashboard', component: UserDashboardComponent },

@@ -41,15 +41,15 @@
 
               <div class="form-group">
                 <label for="">Address</label>
-               <p>Addis Ababa</p>
+               <p>{{contracts.address}}</p>
               </div>
               <div class="form-group">
                 <label for="">Phone</label>
-               <p>+251966337659</p>
+               <p>{{contracts.lPhone}}</p>
               </div>
               <div class="form-group">
                 <label for="">Email</label>
-                <p>sisimandela19@gmail.com</p>
+                <p>{{contracts.lemail}}</p>
               </div>
             
           </div>
@@ -60,24 +60,21 @@
               <div class="row">
                 <div class="form-group col">
                   <label for="">Name</label>
-                 <p></p>
+                 <p>{{contracts.tFirstName}} {{contracts.tLastName}}</p>
                 </div>
               </div>
               <div class="form-group">
                 <label for="">Phone</label>
-               <p></p>
+               <p>{{contracts.tPhone}}</p>
               </div>
               <div class="form-group">
                 <label for="">Email</label>
-                <p></p>
+                <p>{{contracts.temail}}</p>
               </div>
-              <div class="form-group">
-                <label for="">Phone</label>
-               <p></p>
-              </div>
+             
               <div class="form-group">
                 <label for="">Number Of Occupants</label>
-                <p></p>
+                <p>{{contracts.occupants}}</p>
               </div>
           
           </div>
@@ -100,24 +97,24 @@
               
           
                 <div class="address">
-                  <p>1234</p>
-                  <p>Bole</p><p>Addis Ababa</p>
-                  <p>Ethiopia</p>
+                  <p>{{contracts.postal}}</p>
+                  <p>{{contracts.city}}</p><p>{{contracts.state}}</p>
+                  <p>{{contracts.country}}</p>
                 </div></div>
                 <div class="row">
                 <div class="col">
                   <div class="form-group">
                     <label>Start Date of Agreement</label>
-                    <p>12335</p>
+                    <p>{{contracts.startDate | date: medium}}</p>
                   </div>
                   <div class="form-group">
                     <label>End Date of Agreement
                     </label>
-                   <p>452356</p>
+                   <p>{{contracts.endDate | date: medium}}</p>
                   </div>
                   <div class="form-group">
                     <label for="">Pay Period</label>
-                     <p>nbvcx</p>
+                     <p>{{contracts.payPeriod}}</p>
                   </div>
                 </div>
               </div>
@@ -131,23 +128,23 @@
               </div>
               <div class="form-group">
                 <label for="">Rent Amount</label>
-               <p>$3000</p>
+               <p>${{contracts.rentAmount}}</p>
               </div>
               <div class="form-group">
                 <label for="">Security Deposit</label>
-                <p>$2000</p>
+                <p>${{contracts.securityDeposit}}</p>
               </div>
               <div class="form-group">
                 <label for="">Late Charges</label>
-                <p>$300</p>
+                <p>${{contracts.lateCharge}}</p>
               </div>
               <div class="form-group">
                 <label for="">Payment Method</label>
-               <p>Cash</p>
+               <p>{{contracts.paymentMethod}}</p>
               </div>
               <div class="form-group">
                 <label for="">Collector</label>
-               <p>Sisay</p>
+               <p>{{contracts.collector}}</p>
               </div>
           </div>
           <div class=" col-md-12">
@@ -160,7 +157,7 @@
           </div>
          
           <div class="col-md-12">
-          <p>This is an aggreement between</p>
+          <p>{{contracts.terms}}</p>
             <div class="signiture">
               <div class="form-group">
                 <label for="">Landlord Signature</label>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormService } from '../templates/forms/form.service';
-import {Rental} from '../templates/forms/rental'
+import { FormService } from '../forms/form.service';
+import {Rental} from '../forms/rental'
 @Component({
   selector: 'app-contracts',
   templateUrl: './contracts.component.html',
