@@ -11,9 +11,7 @@
       <form [formGroup]="rentalForm" (submit)="rentalForm.valid && onRentalSubmit()">
       <div class="row ">
        
-       
-        
-       
+   
         <!-- ======= Land Lord Information ======= -->
         <div class="col-md-6">
           <h4 class="main-header">Land Lord Information</h4>
@@ -209,9 +207,9 @@
       </div>
       <div class="opt">
         <button (click)="loadAPIData()" class="btn btn-secondary ml-2" type="button">Load API Data</button>
-        <button class="btn" type="submit">Submit</button>
+        <button class="btn" routerLink="../../../contract" type="submit">Submit</button>
         <button class="btn"><i class="fa fa-print"></i> Print</button>
-        <a routerLink="../../../contract">back</a>
+    
       </div>
     </form>
     </div>

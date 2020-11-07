@@ -6,7 +6,6 @@ lLastName:String;
 lemail:String;
 lPhone:Number;
 date:Date;
-
 //tenat information
 tFirstName:String;
 tLastName:String;

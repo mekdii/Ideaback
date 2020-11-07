@@ -1,1 +1,216 @@
-<p>edit-contract works!</p>
+  <div id="content">
+    <!-- ======= Form Section ======= -->
+    <section id="contact"  *ngIf="contract" class="contact container-100 " style="background: rgba(34, 28, 105, 0.603);"  >
+      <div class="container wrapb mx-auto" data-aos="fade-up">
+        <div class="section-title">
+          <p class="text-center"><a routerLink="../../rental"><img src="../../../../assets/img/logo.png" alt="" srcset="" width="70px"></a></p>
+        <h3 class="text-center heading" style="font-size: 24px;">Basic rental agreement</h3>
+        </div>
+       
+  
+        <form [formGroup]="rentalForm" (submit)="rentalForm.valid && editContract()">
+        <div class="row ">
+         
+     
+          <!-- ======= Land Lord Information ======= -->
+          <div class="col-md-6">
+            <h4 class="main-header">Land Lord Information</h4>
+              <div class="row">
+  
+              </div>
+              <div class="row">
+                <div class="form-group col">
+                  <label for="">First Name</label>
+                  <input type="text" class="form-control" [class.is-invalid]="lFirstName.invalid && lFirstName.touched" formControlName="lFirstName" placeholder="{{contract.lFirstName}}">
+                </div>
+                <div class="form-group col">
+                  <label for="">Last Name</label>
+                  <input type="text" class="form-control" [class.is-invalid]="lLastName.invalid && lLastName.touched" formControlName="lLastName">
+                </div>
+              </div>
+  
+            
+              <div class="form-group">
+                <label for="">Phone</label>
+                <input type="text" class="form-control" [class.is-invalid]="lPhone.invalid && lPhone.touched" formControlName="lPhone">
+              </div>
+              <div class="form-group">
+                <label for="">Email</label>
+                <input type="email" class="form-control" [class.is-invalid]="lemail.invalid && lemail.touched" formControlName="lemail">
+              </div>
+            
+          </div>
+         
+          <!-- ======= Tenat Information ======= -->
+          <div class="col-md-6">
+            <h4 class="main-header">Tenant Information</h4>
+  
+              <div class="row">
+                <div class="form-group col">
+                  <label for="">First Name</label>
+                  <input type="text" class="form-control" [class.is-invalid]="tFirstName.invalid && tFirstName.touched" formControlName="tFirstName">
+                </div>
+                <div class="form-group col">
+                  <label for="">Last Name</label>
+                  <input type="text" class="form-control" [class.is-invalid]="tLastName.invalid && tLastName.touched" formControlName="tLastName">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="">Phone</label>
+                <input type="text" class="form-control" [class.is-invalid]="tPhone.invalid && tPhone.touched" formControlName="tPhone">
+              </div>
+              <div class="form-group">
+                <label for="">Email</label>
+                <input type="email" class="form-control" [class.is-invalid]="temail.invalid && temail.touched" formControlName="temail">
+              </div>
+            
+              <div class="form-group">
+                <label for="">Number Of Occupants</label>
+                <input type="number" class="form-control"  formControlName="occupants">
+              </div>
+          
+          </div>
+          <!-- =======Rental Information =======  -->
+          <div class=" col-md-12">
+            <div class="main-header row">
+              <div class="col-md-6">
+                <h4>Rental Information</h4>
+                <hr>
+              </div>
+            </div>
+         
+          </div>
+         
+  
+          <div class="col-md-6">
+           
+              <div class="row">
+  
+              </div>
+              <div class="form-group">
+                <label for="">House Rental Address</label>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group ">
+                    <label>State</label>
+                    <input type="text" formControlName="state" class="form-control"  >
+                  </div>
+                  <div class="form-group">
+                    <label for="">Country</label>
+                    <input type="text" class="form-control"  formControlName="country" [class.is-invalid]="country.invalid && country.touched" >
+                  </div>
+                </div>
+  
+                <div class="col">
+                  <div class="form-group">
+                    <label>City</label>
+                    <input type="text" class="form-control" [class.is-invalid]="city.invalid && city.touched" formControlName="city">
+                  </div>
+                  <div class="form-group">
+                    <label>Postal Code</label>
+                    <input type="text" formControlName="postal" class="form-control"  >
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label>Start Date of Agreement</label>
+                    <input type="date" class="form-control" formControlName="startDate">
+                  </div>
+                  <div class="form-group">
+                    <label>End Date of Agreement
+                    </label>
+                    <input type="date" formControlName="endDate" class="form-control" >
+                  </div>
+                  <div class="form-group">
+                    <label for="">Pay Period</label>
+                    <select class="custom-select" (blur)="validatePeriod(pPeriod)" (change)="validatePeriod(pPeriod)" formControlName="payPeriod">
+                      <option value="default"></option>
+                      <option *ngFor="let period of pPeriod">{{ period }}</option>
+            
+                    </select>
+                  </div>
+                </div>
+              </div>
+          </div>
+  
+  
+          <div class="col-md-6">
+           
+              <div class="row">
+  
+              </div>
+              <div class="form-group">
+                <label for="">Rent Amount per Month</label>
+                <input type="number" class="form-control" [class.is-invalid]="rentAmount.invalid && rentAmount.touched" formControlName="rentAmount">
+              </div>
+              <div class="form-group">
+                <label for="">Security Deposit</label>
+                <input type="number" class="form-control"  formControlName="securityDeposit">
+              </div>
+              <div class="form-group">
+                <label for="">Late Charges</label>
+                <input type="number" class="form-control" [class.is-invalid]="lateCharge.invalid && lateCharge.touched" formControlName="lateCharge">
+              </div>
+              <div class="form-group">
+                <label for="">Payment Method</label>
+                <select class="custom-select"  (blur)="validateMethod(pMethod)" (change)="validateMethod(pMethod)" formControlName="paymentMethod">
+                       <option value="default">Choose payment method</option>
+                      <option *ngFor="let method of pMethod">{{ method }}</option>
+            
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="">Collector</label>
+                <input type="text" class="form-control" formControlName="collector">
+              </div>
+          </div>
+         
+          <div class=" col-md-12">
+            <div class="main-header row">
+              <div class="col-md-6">
+                <h4>Terms and Conditions</h4>
+              </div>
+            </div>
+         
+          </div>
+         
+          <div class="col-md-12">
+          
+            <div class="form-group">
+  
+              <textarea class="form-control" [class.is-invalid]="terms.invalid && terms.touched" formControlName="terms" name="" id="" cols="30" rows="10"
+                placeholder="Insert your terms and conditions"></textarea>
+            </div>
+            <div class="signiture">
+              <div class="form-group">
+                <label for="">Landlord Signature</label>
+                <ng-signature-pad  doneButtonText="showImage" format="base64" (done)="showImage($event)" ></ng-signature-pad>
+            
+              </div>
+              
+              <img [src]="signatureImage" *ngIf="signatureImage"  alt="">
+              <div class="form-group">
+                <label for="">Tenant Signature</label>
+                <ng-signature-pad id="simple_sketch" doneButtonText="showImage" format="base64" (done)="showTImage($event)" ></ng-signature-pad>
+                
+              </div>
+              <img [src]="signatureImages" *ngIf="signatureImages"  alt="">
+            </div>
+  
+          </div>
+       
+     
+        </div>
+        <div class="opt">
+      
+          <button class="btn" type="submit">Submit</button>
+          <button class="btn"><i class="fa fa-print"></i> Print</button>
+          
+        </div>
+      </form>
+      </div>
+    </section>
+  </div>
+  
+  

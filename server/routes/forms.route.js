@@ -67,8 +67,8 @@ router.get('/rental/:id', function (req, res, next) {
 
 //Add a router to PUT a contract data by ID.
 router.put('/rental/:id', function (req, res, next) {
-
-  Rental.findByIdAndUpdate(req.params.id, req.body, function (err, rental) {
+  const id = req.params.id;
+  Rental.findByIdAndUpdate(id, req.body, function (err, rental) {
     if (err) return next(err);
     res.json(rental);
   });

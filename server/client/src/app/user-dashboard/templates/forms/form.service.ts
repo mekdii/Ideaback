@@ -3,6 +3,7 @@ import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { Rental } from './rental';
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +51,15 @@ export class FormService {
       catchError(this.handleError<any>(`getContract id=${id}`))
     );
   }
+
+  updateContract(id: any, rental: Rental): Observable<any> {
+    const url = `${this.apiUrl}/rental/${id}`;
+    return this.http.put(url, rental).pipe(
+      tap(_ => console.log(`updated contract id=${id}`)),
+      catchError(this.handleError<any>('updateContract'))
+    );
+  }
+
 deleteContract(id: any): Observable<any>{
   const url = `${this.apiUrl}/rental/${id}`;
     return this.http.delete<any>(url).pipe(

@@ -16,7 +16,7 @@ mongoose.connect(config.dbUrl, { useNewUrlParser: true, useUnifiedTopology: true
 mongoose.connection.on('connected', () => {
     console.log('connected to mongoDB');
 });
-
+mongoose.set('useFindAndModify', false);
 mongoose.connection.on('error', err => {
     console.log('Error at mongoDB: ' + err);
 });

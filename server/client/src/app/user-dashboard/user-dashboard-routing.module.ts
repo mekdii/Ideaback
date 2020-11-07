@@ -4,6 +4,7 @@ import { RouteguardService } from '../routeguard.service';
 
 import { ContractsComponent } from './contracts/contracts.component';
 import { DetailContractComponent } from './contracts/detail-contract/detail-contract.component';
+import { EditContractComponent } from './contracts/edit-contract/edit-contract.component';
 import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
 import { EventsComponent } from './events/events.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -26,6 +27,11 @@ const UserDashboardRoutes: Routes = [{
           path: 'contract/details/:id',
           component: DetailContractComponent,
           data: { title: 'Contract Details' }
+        },
+        {
+          path: 'contract/edit/:id',
+          component: EditContractComponent,
+          data: { title: 'Edit Contract' }
         },
         { path: 'templates', component: TemplatesComponent},
         {path: 'templates/rental', component: RentalComponent},

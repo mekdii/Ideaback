@@ -11,15 +11,15 @@ import { Rental } from './rental'
 })
 export class FormsComponent implements OnInit {
   rental: Rental = new Rental();
-    pPeriod = ['Every 15th of the month', 'Every End of the month'];
-    pMethod =['Cash', 'Check','PayPal','CBE Birr']
+  pPeriod = ['Every 15th of the month', 'Every End of the month'];
+  pMethod = ['Cash', 'Check', 'PayPal', 'CBE Birr']
   rentalForm: FormGroup;
   periodHasError = true;
   methodHasError = true;
   points = [];
   signatureImage;
   signatureImages;
- 
+
   constructor(private fb: FormBuilder, private fs: FormService, private router: Router,) { }
 
   validatePeriod(value) {
@@ -48,20 +48,20 @@ export class FormsComponent implements OnInit {
       temail: ['', [Validators.required, Validators.email]],
       tPhone: [null, [Validators.required]],
       occupants: [null, [Validators.required]],
-      country:['', [Validators.required]],
-       state:['', [Validators.required]],
-        city:['', [Validators.required]],
-        postal:['', [Validators.required]],
-        
-      startDate:[''],
-      endDate:[''],
-      payPeriod :[''],
-      rentAmount:['', [Validators.required]],
-securityDeposit:['', [Validators.required]],
-lateCharge:['', [Validators.required]],
-collector:['', [Validators.required]],
-paymentMethod:['', [Validators.required]],
-terms:['', [Validators.required]],/*
+      country: ['', [Validators.required]],
+      state: ['', [Validators.required]],
+      city: ['', [Validators.required]],
+      postal: ['', [Validators.required]],
+
+      startDate: [''],
+      endDate: [''],
+      payPeriod: [''],
+      rentAmount: ['', [Validators.required]],
+      securityDeposit: ['', [Validators.required]],
+      lateCharge: ['', [Validators.required]],
+      collector: ['', [Validators.required]],
+      paymentMethod: ['', [Validators.required]],
+      terms: ['', [Validators.required]],/*
 lSignature:['', [Validators.required]],
 tSignature:['', [Validators.required]],
 */
@@ -69,7 +69,7 @@ tSignature:['', [Validators.required]],
   }
 
 
- 
+
   get lFirstName() {
     return this.rentalForm.get('lFirstName');
   }
@@ -113,7 +113,7 @@ tSignature:['', [Validators.required]],
   get postal() {
     return this.rentalForm.get('postal');
   }
-  
+
   get startDate() {
     return this.rentalForm.get('startDate');
   }
@@ -154,32 +154,32 @@ tSignature:['', [Validators.required]],
       lLastName: 'Willis',
       lemail: 'will@gmail.com',
       lPhone: 1234567,
-      address:'aa',
+      address: 'aa',
       tFirstName: 'Alex',
       tLastName: 'Rover',
       temail: 'alex@mail.com',
-       occupants: 3,
-       country:'Ethiopia',
-       state:'Addis Ababa',
-       city:'Addis Ababa',
-       postal: 123,
-       rentAmount:3000,
-securityDeposit:2000,
-lateCharge:300,
+      occupants: 3,
+      country: 'Ethiopia',
+      state: 'Addis Ababa',
+      city: 'Addis Ababa',
+      postal: 123,
+      rentAmount: 3000,
+      securityDeposit: 2000,
+      lateCharge: 300,
 
-collector:'sis',
-terms:'fdsdfghbjnkm,.,lkjhygtfrde bdxsdfghjmk, vcsdfgtyuio'
-     
+      collector: 'sis',
+      terms: 'fdsdfghbjnkm,.,lkjhygtfrde bdxsdfghjmk, vcsdfgtyuio'
+
     });
   }
   onRentalSubmit() {
-   
+
     this.fs.submitForm(this.rentalForm.value)
       .subscribe(
         response => {
           if (response.success) {
             console.log('Success!', response),
-            
+
               this.router.navigate(['/contract']);
 
           } else {
