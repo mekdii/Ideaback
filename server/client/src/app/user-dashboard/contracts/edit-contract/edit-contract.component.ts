@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormService } from '../../templates/forms/form.service';
 import { Rental } from '../../templates/forms/rental';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-edit-contract',
   templateUrl: './edit-contract.component.html',
@@ -16,7 +16,7 @@ export class EditContractComponent implements OnInit {
   pMethod =['Cash', 'Check','PayPal','CBE Birr']
   private sub: any;
    contract: Rental;
-   id = '';
+   id =  String;
    periodHasError = true;
    methodHasError = true;
    points = [];
@@ -25,6 +25,7 @@ export class EditContractComponent implements OnInit {
   
   constructor(private fs: FormService,
     private router: Router,
+    private location: Location,
     private route: ActivatedRoute,
     private fb: FormBuilder) { }
     
@@ -44,7 +45,10 @@ export class EditContractComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  this.getContractData(this.route.snapshot.params.id);
+    this.id = this.route.snapshot.params['id'] || null ;
+    if (this.id) {
+  this.getContractData(this.id);
+    }
   this.rentalForm = this.fb.group({
     lFirstName: ['', [Validators.required, Validators.minLength(3)]],
     lLastName: ['', [Validators.required, Validators.minLength(3)]],
@@ -161,10 +165,10 @@ tSignature:['', [Validators.required]],
 
 
         this.fs.getContract(id).subscribe(data => {
-            this.id = data.id;
+        
             this.contract = data;
-
             this.rentalForm.setValue({
+           
               lFirstName: data.lFirstName,
               lLastName: data.lLastName,
               lemail: data.lemail,
@@ -245,7 +249,7 @@ editContract(): void {
       .subscribe((res: any) => {
           const id = res._id;
           this.isLoadingResults = false;
-          this.router.navigate(['../', id]);
+          this.getBack()
         }, (err: any) => {
           console.log(err);
           this.isLoadingResults = false;
@@ -253,6 +257,8 @@ editContract(): void {
       );
 
 }
-
+getBack() {
+  this.location.back();
+}
 
 }
