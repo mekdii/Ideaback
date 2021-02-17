@@ -8,6 +8,8 @@ const config = require('./configuration/config');
 const userRoute = require('./routes/users.route');
 const indexRoute = require('./routes/index.route');
 const formsRoute = require('./routes/forms.route');
+const ideaRoute = require('./routes/idea.route');
+
 
 const app = express();
 app.use(cors())
@@ -35,6 +37,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', indexRoute);
 app.use('/users', userRoute);
 app.use('/forms', formsRoute);
+app.use('/idea' , ideaRoute)
 //set up public resources folder
 app.use(express.static(__dirname + '/public'));
 

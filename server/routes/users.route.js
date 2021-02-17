@@ -21,7 +21,8 @@ router.post('/signup', (req, res)=>{
         if(err){
             return res.json({success: false, message: err});
         }
-        return res.json({success: true, message: result});
+       // return res.json({success: true, message: result});
+      return res.json({success: true, id:user._id , email:user.email});
     });
 });
 
@@ -60,7 +61,7 @@ router.post('/login', (req, res, next)=>{
 });
 // Dashboard
 router.get('/dashboard', passport.authenticate('jwt', {session:false}), (req, res, next) => {
-    res.json({user: req.user});
+    res.json({userr: req.user});
   });
   
 
